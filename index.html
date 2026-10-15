@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Jean Moraes — Desenvolvedor Full Stack | Java, Quarkus, Flutter</title>
+<meta name="description" content="Desenvolvedor Full Stack com mais de 8 anos de experiência em backend Java (Quarkus, Spring Boot), microsserviços, integrações EDI e fiscais, AWS e apps mobile em Flutter." />
+<meta name="author" content="Jean Leonardo de Souza Moraes" />
+<meta name="theme-color" content="#0b0d10" />
+<link rel="canonical" href="https://jean8791.github.io/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://jean8791.github.io/" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:title" content="Jean Moraes — Desenvolvedor Full Stack | Java, Quarkus, Flutter" />
+<meta property="og:description" content="Backend Java (Quarkus, Spring Boot), microsserviços, integrações EDI e fiscais, AWS e mobile em Flutter. Mais de 8 anos construindo um TMS." />
+<meta property="og:image" content="https://jean8791.github.io/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2338bdf8'/><text x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%230b0d10'>JM</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0d10;
+    --bg-alt: #111419;
+    --card: #151a21;
+    --border: #232a34;
+    --text: #e6e9ee;
+    --muted: #9aa4b2;
+    --accent: #38bdf8;
+    --accent-2: #34d399;
+    --radius: 14px;
+    --max: 1100px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .mono { font-family: "JetBrains Mono", monospace; }
+
+  .nav { position: sticky; top: 0; z-index: 10; background: rgba(11,13,16,.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav__logo { font-weight: 800; letter-spacing: -.02em; }
+  .nav__logo span { color: var(--accent); }
+  .nav__links { display: flex; gap: 28px; font-size: .92rem; color: var(--muted); }
+  .nav__links a:hover { color: var(--text); }
+  .nav__toggle { display: none; background: none; border: 0; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+  .hero { padding: 110px 0 90px; }
+  .hero__grid { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; }
+  .hero__tag { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--accent-2); border: 1px solid rgba(52,211,153,.3); background: rgba(52,211,153,.08); padding: 6px 12px; border-radius: 999px; margin-bottom: 22px; }
+  .hero__tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 10px var(--accent-2); }
+  .hero__title { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; font-weight: 800; letter-spacing: -.03em; }
+  .hero__title em { font-style: normal; background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .hero__sub { margin-top: 20px; font-size: 1.12rem; color: var(--muted); max-width: 640px; }
+  .hero__cta { margin-top: 34px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: .95rem; transition: transform .15s, background .15s, border-color .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn--primary { background: var(--accent); color: #04121b; }
+  .btn--ghost { border: 1px solid var(--border); background: var(--card); }
+  .btn--ghost:hover { border-color: var(--accent); }
+  .btn svg { width: 18px; height: 18px; }
+  .hero__photo { width: 240px; height: 240px; border-radius: 50%; padding: 4px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); }
+  .hero__photo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 4px solid var(--bg); display: block; }
+  .stats { margin-top: 70px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+  .stat b { display: block; font-size: 1.8rem; font-weight: 800; color: var(--accent); letter-spacing: -.02em; }
+  .stat span { font-size: .88rem; color: var(--muted); }
+
+  .section { padding: 90px 0; }
+  .section--alt { background: var(--bg-alt); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .section__kicker { font-family: "JetBrains Mono", monospace; color: var(--accent); font-size: .85rem; margin-bottom: 8px; }
+  .section__title { font-size: clamp(1.7rem, 3.5vw, 2.4rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
+  .section__lead { color: var(--muted); max-width: 720px; margin-bottom: 44px; }
+
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 26px; transition: border-color .2s, transform .2s; }
+  .card:hover { border-color: rgba(56,189,248,.5); transform: translateY(-3px); }
+  .card__icon { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: rgba(56,189,248,.12); color: var(--accent); margin-bottom: 16px; }
+  .card__icon svg { width: 22px; height: 22px; }
+  .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+  .card p { color: var(--muted); font-size: .95rem; }
+
+  .stack { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .stack__group h3 { font-size: .95rem; margin-bottom: 12px; color: var(--text); }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { font-family: "JetBrains Mono", monospace; font-size: .8rem; padding: 5px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); }
+
+  .tl { position: relative; padding-left: 30px; }
+  .tl::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), var(--accent-2), transparent); }
+  .tl__item { position: relative; margin-bottom: 34px; }
+  .tl__item::before { content: ""; position: absolute; left: -30px; top: 6px; width: 16px; height: 16px; border-radius: 50%; background: var(--bg-alt); border: 3px solid var(--accent); }
+  .tl__head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; }
+  .tl__role { font-size: 1.15rem; }
+  .tl__date { font-family: "JetBrains Mono", monospace; font-size: .82rem; color: var(--muted); }
+  .tl__org { color: var(--accent); font-size: .92rem; margin: 2px 0 10px; }
+  .tl__item ul { list-style: none; color: var(--muted); font-size: .95rem; }
+  .tl__item li { position: relative; padding-left: 18px; margin-bottom: 5px; }
+  .tl__item li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+  .tl__item .chips { margin-top: 12px; }
+
+  .projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .project { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; transition: border-color .2s, transform .2s; }
+  .project:hover { border-color: rgba(56,189,248,.5); transform: translateY(-3px); }
+  .project__top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; color: var(--accent); }
+  .project__top svg { width: 24px; height: 24px; }
+  .project__top .ext { width: 18px; height: 18px; color: var(--muted); }
+  .project h3 { font-size: 1.05rem; margin-bottom: 8px; }
+  .project p { color: var(--muted); font-size: .92rem; flex: 1; }
+  .project .chips { margin-top: 16px; }
+
+  .edu { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 720px; }
+
+  .contact { text-align: center; padding: 100px 0; }
+  .contact .section__lead { margin: 0 auto 34px; }
+  .contact__links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  footer { border-top: 1px solid var(--border); padding: 26px 0; text-align: center; color: var(--muted); font-size: .85rem; }
+
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  .no-js .reveal { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+
+  @media (max-width: 900px) {
+    .projects, .stack { grid-template-columns: repeat(2, 1fr); }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .wrap { padding: 0 16px; }
+    .nav__toggle { display: block; }
+    .nav__links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; background: var(--bg); border-bottom: 1px solid var(--border); }
+    .nav__links.open { display: flex; }
+    .nav__links a { padding: 14px 16px; border-top: 1px solid var(--border); }
+    .hero { padding: 60px 0 60px; }
+    .hero__grid { grid-template-columns: 1fr; }
+    .hero__photo { width: 140px; height: 140px; order: -1; }
+    .cards, .projects, .stack { grid-template-columns: 1fr; }
+    .section { padding: 64px 0; }
+    .stat b { font-size: 1.35rem; white-space: nowrap; }
+  }
+</style>
+</head>
+<body class="no-js">
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap">
+    <a href="#inicio" class="nav__logo">Jean<span>.</span>Moraes</a>
+    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <div class="nav__links">
+      <a href="#sobre">Sobre</a>
+      <a href="#stack">Stack</a>
+      <a href="#experiencia">Experiência</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div>
+        <div class="hero__tag reveal">Aberto a oportunidades · remoto ou híbrido</div>
+        <h1 class="hero__title reveal">Olá, sou o Jean.<br />Desenvolvo <em>backend Java</em>, web e mobile.</h1>
+        <p class="hero__sub reveal">Desenvolvedor Full Stack com mais de 8 anos construindo um TMS (sistema de gestão de transportes): microsserviços em Java e Quarkus, integrações EDI e fiscais, AWS e aplicativos em Flutter.</p>
+        <div class="hero__cta reveal">
+          <a class="btn btn--primary" href="#projetos">Ver projetos</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/jean-leonardo-de-souza-moraes-b54416123" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+            LinkedIn
+          </a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.83-.26.83-.57v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3Z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+      <div class="hero__photo reveal"><img src="https://github.com/Jean8791.png?size=480" alt="Foto de Jean Moraes" width="240" height="240" /></div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b>8+</b><span>anos de experiência</span></div>
+      <div class="stat reveal"><b>30+</b><span>repositórios no dia a dia</span></div>
+      <div class="stat reveal"><b>Java 8→25</b><span>migração de legado</span></div>
+      <div class="stat reveal"><b>EDI</b><span>PROCEDA, NF-e, CT-e, NFS-e</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="section section--alt" id="sobre">
+  <div class="wrap">
+    <p class="section__kicker">// sobre</p>
+    <h2 class="section__title">O que eu faço</h2>
+    <p class="section__lead">Comecei como programador júnior e cresci dentro do mesmo produto, passando por módulos críticos como cálculo de frete e pagamento de faturas. Hoje crio serviços novos, conduzo migração de legado e cuido de sistemas em produção de ponta a ponta.</p>
+    <div class="cards">
+      <div class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="15" width="20" height="6" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></div>
+        <h3>Backend e microsserviços</h3>
+        <p>APIs REST e microsserviços em Java 25 e Quarkus, com mensageria (JMS, AWS SQS e SNS), PostgreSQL e MongoDB.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/><path d="M17 17H7V7"/></svg></div>
+        <h3>Integrações EDI e fiscais</h3>
+        <p>NOTFIS, CONEMB, OCOREN e DOCCOB no padrão PROCEDA (3.1 e 5.0), NF-e, CT-e e NFS-e, e APIs para embarcadores e transportadoras.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
+        <h3>Modernização de legado</h3>
+        <p>Migração de módulos de Java 8 e GlassFish para Java 17+ e Quarkus, com ganho de performance e infraestrutura mais leve.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+        <h3>Web e mobile</h3>
+        <p>Aplicativos de entregas e de conferência de carga em Flutter, e interfaces web em Angular, React e Next.js.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stack">
+  <div class="wrap">
+    <p class="section__kicker">// stack</p>
+    <h2 class="section__title">Tecnologias</h2>
+    <p class="section__lead">O que uso no trabalho e nos projetos pessoais.</p>
+    <div class="stack">
+      <div class="card stack__group reveal"><h3>Back-end</h3><div class="chips"><span class="chip">Java 8–25</span><span class="chip">Quarkus</span><span class="chip">Spring Boot</span><span class="chip">Hibernate</span><span class="chip">Maven</span><span class="chip">Node.js</span><span class="chip">REST</span><span class="chip">JWT</span></div></div>
+      <div class="card stack__group reveal"><h3>Front-end</h3><div class="chips"><span class="chip">Angular</span><span class="chip">AngularJS</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Vue.js</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span></div></div>
+      <div class="card stack__group reveal"><h3>Mobile</h3><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span></div></div>
+      <div class="card stack__group reveal"><h3>Dados</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQL</span><span class="chip">Flyway</span><span class="chip">Batch</span></div></div>
+      <div class="card stack__group reveal"><h3>Cloud e DevOps</h3><div class="chips"><span class="chip">AWS S3</span><span class="chip">SQS</span><span class="chip">SNS</span><span class="chip">Lambda</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Git</span></div></div>
+      <div class="card stack__group reveal"><h3>Qualidade e integrações</h3><div class="chips"><span class="chip">JUnit</span><span class="chip">Mockito</span><span class="chip">Jest</span><span class="chip">JMS</span><span class="chip">EDI PROCEDA</span><span class="chip">NF-e</span><span class="chip">CT-e</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="experiencia">
+  <div class="wrap">
+    <p class="section__kicker">// experiência</p>
+    <h2 class="section__title">Trajetória</h2>
+    <p class="section__lead">Toda a carreira no TMS da M&amp;O Sistemas, de programador júnior a desenvolvedor full stack com autonomia do levantamento à produção.</p>
+    <div class="tl">
+      <div class="tl__item reveal">
+        <div class="tl__head"><h3 class="tl__role">Full Stack Developer</h3><span class="tl__date">abr 2024 – atual</span></div>
+        <div class="tl__org">M&amp;O Sistemas · Terceirizado · Joinville, SC</div>
+        <ul>
+          <li>Migração de módulos legados de Java 8/GlassFish para Java 17+ e Quarkus.</li>
+          <li>Novos microsserviços em Java e Quarkus, entre eles o de provisionamento para um cliente de grande porte.</li>
+          <li>Integrações EDI PROCEDA (NOTFIS, CONEMB, OCOREN, DOCCOB), NF-e, CT-e e NFS-e, com layouts por cliente.</li>
+          <li>Gestão de pátio e portaria: agendamento de veículos, previsão de atrasos e avisos por WhatsApp e e-mail.</li>
+          <li>Apps mobile de entregas e de conferência de carga em Flutter.</li>
+          <li>Sustentação de um cliente com sistema legado em servidor próprio.</li>
+        </ul>
+        <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">Flutter</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">AWS</span><span class="chip">Docker</span></div>
+      </div>
+      <div class="tl__item reveal">
+        <div class="tl__head"><h3 class="tl__role">Full Stack Developer</h3><span class="tl__date">fev 2019 – mar 2024</span></div>
+        <div class="tl__org">M&amp;O Sistemas · Tempo integral · Joinville, SC</div>
+        <ul>
+          <li>Regras centrais do sistema, como cálculo de frete e pagamento de faturas.</li>
+          <li>Relatórios com alto volume de dados e otimização de consultas no PostgreSQL.</li>
+          <li>Integrações EDI PROCEDA, NF-e e CT-e, ocorrências de entrega e pedidos.</li>
+          <li>Front-end web em AngularJS.</li>
+        </ul>
+        <div class="chips"><span class="chip">Java</span><span class="chip">PostgreSQL</span><span class="chip">AngularJS</span><span class="chip">REST</span></div>
+      </div>
+      <div class="tl__item reveal">
+        <div class="tl__head"><h3 class="tl__role">Programador Júnior</h3><span class="tl__date">jul 2018 – jan 2019</span></div>
+        <div class="tl__org">M&amp;O Sistemas · Tempo integral · Joinville, SC</div>
+        <ul>
+          <li>Análise e correção de problemas de clientes, investigando a causa raiz no código e no banco.</li>
+          <li>Testes unitários com JUnit e Mockito para evitar regressões.</li>
+        </ul>
+        <div class="chips"><span class="chip">Java</span><span class="chip">JUnit</span><span class="chip">Mockito</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="projetos">
+  <div class="wrap">
+    <p class="section__kicker">// projetos</p>
+    <h2 class="section__title">Projetos pessoais</h2>
+    <p class="section__lead">Código aberto no GitHub, do back-end ao front-end.</p>
+    <div class="projects">
+      <a class="project reveal" href="https://github.com/Jean8791/agro-back" target="_blank" rel="noopener">
+        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <h3>agro-back</h3>
+        <p>API multi-tenant de gestão para o agronegócio: produtores, usuários e Raio-X de preços, com JWT e rate limiting.</p>
+        <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">Flyway</span><span class="chip">PostgreSQL</span></div>
+      </a>
+      <a class="project reveal" href="https://github.com/Jean8791/agro-front" target="_blank" rel="noopener">
+        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <h3>agro-front</h3>
+        <p>Front-end da plataforma do agronegócio, com autenticação JWT e refresh token.</p>
+        <div class="chips"><span class="chip">Angular 21</span><span class="chip">TypeScript</span></div>
+      </a>
+      <a class="project reveal" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">
+        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <h3>marknow-api</h3>
+        <p>API do MarkNow, SaaS de agendamento por horários: multi-tenant, assinaturas e convites.</p>
+        <div class="chips"><span class="chip">Java 17</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span></div>
+      </a>
+      <a class="project reveal" href="https://github.com/Jean8791/marknow-web" target="_blank" rel="noopener">
+        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <h3>marknow-web</h3>
+        <p>Front-end do MarkNow: login, cadastro por convite e painel administrativo.</p>
+        <div class="chips"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Tailwind</span></div>
+      </a>
+      <a class="project reveal" href="https://github.com/Jean8791/quarkus-batch-processor" target="_blank" rel="noopener">
+        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <h3>quarkus-batch-processor</h3>
+        <p>Biblioteca para processar milhões de registros com pouca memória, usando Stateless Session e streaming por cursor.</p>
+        <div class="chips"><span class="chip">Java 17+</span><span class="chip">Quarkus</span><span class="chip">Hibernate</span></div>
+      </a>
+      <a class="project reveal" href="https://github.com/Jean8791/matriz-pratica-web" target="_blank" rel="noopener">
+        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
+        <h3>matriz-pratica-web</h3>
+        <p>Aplicação web Matriz Prática, com migrations, testes e release automatizado na Vercel.</p>
+        <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">Jest</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="formacao">
+  <div class="wrap">
+    <p class="section__kicker">// formação</p>
+    <h2 class="section__title">Formação</h2>
+    <div class="edu">
+      <div class="card reveal">
+        <div class="tl__head"><h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3><span class="tl__date">2017 – 2019</span></div>
+        <p>SENAI Norte · Joinville, SC</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="wrap">
+    <p class="section__kicker">// contato</p>
+    <h2 class="section__title">Vamos conversar?</h2>
+    <p class="section__lead">Estou aberto a vagas de Desenvolvedor Backend Java, Full Stack ou Mobile Flutter, em modelo remoto ou híbrido, com base em Joinville, SC.</p>
+    <div class="contact__links">
+      <a class="btn btn--primary" href="https://www.linkedin.com/in/jean-leonardo-de-souza-moraes-b54416123" target="_blank" rel="noopener">Falar pelo LinkedIn</a>
+      <a class="btn btn--ghost" href="https://github.com/Jean8791" target="_blank" rel="noopener">github.com/Jean8791</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© <span id="ano">2026</span> Jean Leonardo de Souza Moraes</div></footer>
+
+<script>
+  document.body.classList.remove("no-js");
+  document.getElementById("ano").textContent = new Date().getFullYear();
+  const toggle = document.querySelector(".nav__toggle");
+  const links = document.querySelector(".nav__links");
+  toggle.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+  });
+  links.querySelectorAll("a").forEach(a => a.addEventListener("click", () => links.classList.remove("open")));
+  const els = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  } else {
+    els.forEach(el => el.classList.add("is-visible"));
+  }
+</script>
+</body>
+</html>
