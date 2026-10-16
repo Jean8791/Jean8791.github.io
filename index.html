@@ -11,6 +11,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://jean8791.github.io/" />
 <meta property="og:locale" content="pt_BR" />
+<meta property="og:locale:alternate" content="en_US" />
 <meta property="og:title" content="Jean Moraes — Desenvolvedor Full Stack | Java, Quarkus, Flutter" />
 <meta property="og:description" content="Backend Java (Quarkus, Spring Boot), microsserviços, integrações EDI e fiscais, AWS e mobile em Flutter. Mais de 8 anos construindo um TMS." />
 <meta property="og:image" content="https://jean8791.github.io/assets/og-image.png" />
@@ -119,6 +120,12 @@
   .contact__links { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
   footer { border-top: 1px solid var(--border); padding: 26px 0; text-align: center; color: var(--muted); font-size: .85rem; }
 
+  html[lang="en"] .pt, html:not([lang="en"]) .en { display: none; }
+  .lang { background: var(--card); border: 1px solid var(--border); color: var(--text); font: 600 .8rem "JetBrains Mono", monospace; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+  .lang:hover { border-color: var(--accent); }
+  .nav__right { display: flex; align-items: center; gap: 14px; }
+  .nav__right { order: 3; margin-left: 24px; }
+  .nav__links { margin-left: auto; }
   .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
   .reveal.is-visible { opacity: 1; transform: none; }
   .no-js .reveal { opacity: 1; transform: none; }
@@ -148,13 +155,16 @@
 <nav class="nav" aria-label="Principal">
   <div class="wrap">
     <a href="#inicio" class="nav__logo">Jean<span>.</span>Moraes</a>
-    <button class="nav__toggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <div class="nav__right">
+      <button class="lang" type="button" aria-label="Mudar idioma / Change language">EN</button>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
     <div class="nav__links">
-      <a href="#sobre">Sobre</a>
+      <a href="#sobre"><span class="pt">Sobre</span><span class="en" lang="en">About</span></a>
       <a href="#stack">Stack</a>
-      <a href="#experiencia">Experiência</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
+      <a href="#experiencia"><span class="pt">Experiência</span><span class="en" lang="en">Experience</span></a>
+      <a href="#projetos"><span class="pt">Projetos</span><span class="en" lang="en">Projects</span></a>
+      <a href="#contato"><span class="pt">Contato</span><span class="en" lang="en">Contact</span></a>
     </div>
   </div>
 </nav>
@@ -163,11 +173,11 @@
   <div class="wrap">
     <div class="hero__grid">
       <div>
-        <div class="hero__tag reveal">Aberto a oportunidades · remoto ou híbrido</div>
-        <h1 class="hero__title reveal">Olá, sou o Jean.<br />Desenvolvo <em>backend Java</em>, web e mobile.</h1>
-        <p class="hero__sub reveal">Desenvolvedor Full Stack com mais de 8 anos construindo um TMS (sistema de gestão de transportes): microsserviços em Java e Quarkus, integrações EDI e fiscais, AWS e aplicativos em Flutter.</p>
+        <div class="hero__tag reveal"><span class="pt">Aberto a oportunidades · remoto ou híbrido</span><span class="en" lang="en">Open to opportunities · remote or hybrid</span></div>
+        <h1 class="hero__title reveal"><span class="pt">Olá, sou o Jean.<br />Desenvolvo <em>backend Java</em>, web e mobile.</span><span class="en" lang="en">Hi, I'm Jean.<br />I build <em>Java backends</em>, web and mobile.</span></h1>
+        <p class="hero__sub reveal"><span class="pt">Desenvolvedor Full Stack com mais de 8 anos construindo um TMS (sistema de gestão de transportes): microsserviços em Java e Quarkus, integrações EDI e fiscais, AWS e aplicativos em Flutter.</span><span class="en" lang="en">Full Stack Developer with 8+ years building a TMS (transportation management system): Java and Quarkus microservices, EDI and tax-document integrations, AWS and Flutter apps.</span></p>
         <div class="hero__cta reveal">
-          <a class="btn btn--primary" href="#projetos">Ver projetos</a>
+          <a class="btn btn--primary" href="#projetos"><span class="pt">Ver projetos</span><span class="en" lang="en">View projects</span></a>
           <a class="btn btn--ghost" href="https://www.linkedin.com/in/jean-leonardo-de-souza-moraes-b54416123" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
             LinkedIn
@@ -178,12 +188,12 @@
           </a>
         </div>
       </div>
-      <div class="hero__photo reveal"><img src="https://github.com/Jean8791.png?size=480" alt="Foto de Jean Moraes" width="240" height="240" /></div>
+      <div class="hero__photo reveal"><img src="https://github.com/Jean8791.png?size=480" alt="Jean Moraes" width="240" height="240" /></div>
     </div>
     <div class="stats">
-      <div class="stat reveal"><b>8+</b><span>anos de experiência</span></div>
-      <div class="stat reveal"><b>30+</b><span>repositórios no dia a dia</span></div>
-      <div class="stat reveal"><b>Java 8→25</b><span>migração de legado</span></div>
+      <div class="stat reveal"><b>8+</b><span><span class="pt">anos de experiência</span><span class="en" lang="en">years of experience</span></span></div>
+      <div class="stat reveal"><b>30+</b><span><span class="pt">repositórios no dia a dia</span><span class="en" lang="en">repositories day to day</span></span></div>
+      <div class="stat reveal"><b>Java 8→25</b><span><span class="pt">migração de legado</span><span class="en" lang="en">legacy migration</span></span></div>
       <div class="stat reveal"><b>EDI</b><span>PROCEDA, NF-e, CT-e, NFS-e</span></div>
     </div>
   </div>
@@ -191,29 +201,29 @@
 
 <section class="section section--alt" id="sobre">
   <div class="wrap">
-    <p class="section__kicker">// sobre</p>
-    <h2 class="section__title">O que eu faço</h2>
-    <p class="section__lead">Comecei como programador júnior e cresci dentro do mesmo produto, passando por módulos críticos como cálculo de frete e pagamento de faturas. Hoje crio serviços novos, conduzo migração de legado e cuido de sistemas em produção de ponta a ponta.</p>
+    <p class="section__kicker">// <span class="pt">sobre</span><span class="en" lang="en">about</span></p>
+    <h2 class="section__title"><span class="pt">O que eu faço</span><span class="en" lang="en">What I do</span></h2>
+    <p class="section__lead"><span class="pt">Comecei como programador júnior e cresci dentro do mesmo produto, passando por módulos críticos como cálculo de frete e pagamento de faturas. Hoje crio serviços novos, conduzo migração de legado e cuido de sistemas em produção de ponta a ponta.</span><span class="en" lang="en">I started as a junior developer and grew within the same product, working on critical modules such as freight calculation and invoice payment. Today I build new services, lead legacy migrations and own production systems end to end.</span></p>
     <div class="cards">
       <div class="card reveal">
         <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="15" width="20" height="6" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></div>
-        <h3>Backend e microsserviços</h3>
-        <p>APIs REST e microsserviços em Java 25 e Quarkus, com mensageria (JMS, AWS SQS e SNS), PostgreSQL e MongoDB.</p>
+        <h3><span class="pt">Backend e microsserviços</span><span class="en" lang="en">Backend and microservices</span></h3>
+        <p><span class="pt">APIs REST e microsserviços em Java 25 e Quarkus, com mensageria (JMS, AWS SQS e SNS), PostgreSQL e MongoDB.</span><span class="en" lang="en">REST APIs and microservices in Java 25 and Quarkus, with messaging (JMS, AWS SQS and SNS), PostgreSQL and MongoDB.</span></p>
       </div>
       <div class="card reveal">
         <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/><path d="M17 17H7V7"/></svg></div>
-        <h3>Integrações EDI e fiscais</h3>
-        <p>NOTFIS, CONEMB, OCOREN e DOCCOB no padrão PROCEDA (3.1 e 5.0), NF-e, CT-e e NFS-e, e APIs para embarcadores e transportadoras.</p>
+        <h3><span class="pt">Integrações EDI e fiscais</span><span class="en" lang="en">EDI and tax integrations</span></h3>
+        <p><span class="pt">NOTFIS, CONEMB, OCOREN e DOCCOB no padrão PROCEDA (3.1 e 5.0), NF-e, CT-e e NFS-e, e APIs para embarcadores e transportadoras.</span><span class="en" lang="en">NOTFIS, CONEMB, OCOREN and DOCCOB in the PROCEDA standard (3.1 and 5.0), Brazilian electronic invoices (NF-e, CT-e, NFS-e) and APIs for shippers and carriers.</span></p>
       </div>
       <div class="card reveal">
         <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></div>
-        <h3>Modernização de legado</h3>
-        <p>Migração de módulos de Java 8 e GlassFish para Java 17+ e Quarkus, com ganho de performance e infraestrutura mais leve.</p>
+        <h3><span class="pt">Modernização de legado</span><span class="en" lang="en">Legacy modernization</span></h3>
+        <p><span class="pt">Migração de módulos de Java 8 e GlassFish para Java 17+ e Quarkus, com ganho de performance e infraestrutura mais leve.</span><span class="en" lang="en">Migrating modules from Java 8 and GlassFish to Java 17+ and Quarkus, improving performance and slimming down infrastructure.</span></p>
       </div>
       <div class="card reveal">
         <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
-        <h3>Web e mobile</h3>
-        <p>Aplicativos de entregas e de conferência de carga em Flutter, e interfaces web em Angular, React e Next.js.</p>
+        <h3><span class="pt">Web e mobile</span><span class="en" lang="en">Web and mobile</span></h3>
+        <p><span class="pt">Aplicativos de entregas e de conferência de carga em Flutter, e interfaces web em Angular, React e Next.js.</span><span class="en" lang="en">Delivery and cargo-checking apps in Flutter, and web interfaces in Angular, React and Next.js.</span></p>
       </div>
     </div>
   </div>
@@ -222,55 +232,55 @@
 <section class="section" id="stack">
   <div class="wrap">
     <p class="section__kicker">// stack</p>
-    <h2 class="section__title">Tecnologias</h2>
-    <p class="section__lead">O que uso no trabalho e nos projetos pessoais.</p>
+    <h2 class="section__title"><span class="pt">Tecnologias</span><span class="en" lang="en">Technologies</span></h2>
+    <p class="section__lead"><span class="pt">O que uso no trabalho e nos projetos pessoais.</span><span class="en" lang="en">What I use at work and in personal projects.</span></p>
     <div class="stack">
       <div class="card stack__group reveal"><h3>Back-end</h3><div class="chips"><span class="chip">Java 8–25</span><span class="chip">Quarkus</span><span class="chip">Spring Boot</span><span class="chip">Hibernate</span><span class="chip">Maven</span><span class="chip">Node.js</span><span class="chip">REST</span><span class="chip">JWT</span></div></div>
       <div class="card stack__group reveal"><h3>Front-end</h3><div class="chips"><span class="chip">Angular</span><span class="chip">AngularJS</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Vue.js</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span></div></div>
       <div class="card stack__group reveal"><h3>Mobile</h3><div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span></div></div>
-      <div class="card stack__group reveal"><h3>Dados</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQL</span><span class="chip">Flyway</span><span class="chip">Batch</span></div></div>
-      <div class="card stack__group reveal"><h3>Cloud e DevOps</h3><div class="chips"><span class="chip">AWS S3</span><span class="chip">SQS</span><span class="chip">SNS</span><span class="chip">Lambda</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Git</span></div></div>
-      <div class="card stack__group reveal"><h3>Qualidade e integrações</h3><div class="chips"><span class="chip">JUnit</span><span class="chip">Mockito</span><span class="chip">Jest</span><span class="chip">JMS</span><span class="chip">EDI PROCEDA</span><span class="chip">NF-e</span><span class="chip">CT-e</span></div></div>
+      <div class="card stack__group reveal"><h3><span class="pt">Dados</span><span class="en" lang="en">Data</span></h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQL</span><span class="chip">Flyway</span><span class="chip">Batch</span></div></div>
+      <div class="card stack__group reveal"><h3>Cloud &amp; DevOps</h3><div class="chips"><span class="chip">AWS S3</span><span class="chip">SQS</span><span class="chip">SNS</span><span class="chip">Lambda</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Git</span></div></div>
+      <div class="card stack__group reveal"><h3><span class="pt">Qualidade e integrações</span><span class="en" lang="en">Quality and integrations</span></h3><div class="chips"><span class="chip">JUnit</span><span class="chip">Mockito</span><span class="chip">Jest</span><span class="chip">JMS</span><span class="chip">EDI PROCEDA</span><span class="chip">NF-e</span><span class="chip">CT-e</span></div></div>
     </div>
   </div>
 </section>
 
 <section class="section section--alt" id="experiencia">
   <div class="wrap">
-    <p class="section__kicker">// experiência</p>
-    <h2 class="section__title">Trajetória</h2>
-    <p class="section__lead">Toda a carreira no TMS da M&amp;O Sistemas, de programador júnior a desenvolvedor full stack com autonomia do levantamento à produção.</p>
+    <p class="section__kicker">// <span class="pt">experiência</span><span class="en" lang="en">experience</span></p>
+    <h2 class="section__title"><span class="pt">Trajetória</span><span class="en" lang="en">Career</span></h2>
+    <p class="section__lead"><span class="pt">Toda a carreira no TMS da M&amp;O Sistemas, de programador júnior a desenvolvedor full stack com autonomia do levantamento à produção.</span><span class="en" lang="en">My whole career on the M&amp;O Sistemas TMS, from junior developer to full stack developer owning work from requirements to production.</span></p>
     <div class="tl">
       <div class="tl__item reveal">
-        <div class="tl__head"><h3 class="tl__role">Full Stack Developer</h3><span class="tl__date">abr 2024 – atual</span></div>
-        <div class="tl__org">M&amp;O Sistemas · Terceirizado · Joinville, SC</div>
+        <div class="tl__head"><h3 class="tl__role">Full Stack Developer</h3><span class="tl__date"><span class="pt">abr 2024 – atual</span><span class="en" lang="en">Apr 2024 – present</span></span></div>
+        <div class="tl__org">M&amp;O Sistemas · <span class="pt">Terceirizado</span><span class="en" lang="en">Contractor</span> · Joinville, SC</div>
         <ul>
-          <li>Migração de módulos legados de Java 8/GlassFish para Java 17+ e Quarkus.</li>
-          <li>Novos microsserviços em Java e Quarkus, entre eles o de provisionamento para um cliente de grande porte.</li>
-          <li>Integrações EDI PROCEDA (NOTFIS, CONEMB, OCOREN, DOCCOB), NF-e, CT-e e NFS-e, com layouts por cliente.</li>
-          <li>Gestão de pátio e portaria: agendamento de veículos, previsão de atrasos e avisos por WhatsApp e e-mail.</li>
-          <li>Apps mobile de entregas e de conferência de carga em Flutter.</li>
-          <li>Sustentação de um cliente com sistema legado em servidor próprio.</li>
+          <li><span class="pt">Migração de módulos legados de Java 8/GlassFish para Java 17+ e Quarkus.</span><span class="en" lang="en">Migrated legacy modules from Java 8/GlassFish to Java 17+ and Quarkus.</span></li>
+          <li><span class="pt">Novos microsserviços em Java e Quarkus, entre eles o de provisionamento para um cliente de grande porte.</span><span class="en" lang="en">Built new Java and Quarkus microservices, including a provisioning service for a large client.</span></li>
+          <li><span class="pt">Integrações EDI PROCEDA (NOTFIS, CONEMB, OCOREN, DOCCOB), NF-e, CT-e e NFS-e, com layouts por cliente.</span><span class="en" lang="en">PROCEDA EDI integrations (NOTFIS, CONEMB, OCOREN, DOCCOB), NF-e, CT-e and NFS-e, with client-specific layouts.</span></li>
+          <li><span class="pt">Gestão de pátio e portaria: agendamento de veículos, previsão de atrasos e avisos por WhatsApp e e-mail.</span><span class="en" lang="en">Yard and gate management: vehicle scheduling, delay prediction and WhatsApp and e-mail notifications.</span></li>
+          <li><span class="pt">Apps mobile de entregas e de conferência de carga em Flutter.</span><span class="en" lang="en">Flutter mobile apps for deliveries and cargo checking.</span></li>
+          <li><span class="pt">Sustentação de um cliente com sistema legado em servidor próprio.</span><span class="en" lang="en">Maintained a client's legacy system running on its own server.</span></li>
         </ul>
         <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">Flutter</span><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">AWS</span><span class="chip">Docker</span></div>
       </div>
       <div class="tl__item reveal">
-        <div class="tl__head"><h3 class="tl__role">Full Stack Developer</h3><span class="tl__date">fev 2019 – mar 2024</span></div>
-        <div class="tl__org">M&amp;O Sistemas · Tempo integral · Joinville, SC</div>
+        <div class="tl__head"><h3 class="tl__role">Full Stack Developer</h3><span class="tl__date"><span class="pt">fev 2019 – mar 2024</span><span class="en" lang="en">Feb 2019 – Mar 2024</span></span></div>
+        <div class="tl__org">M&amp;O Sistemas · <span class="pt">Tempo integral</span><span class="en" lang="en">Full-time</span> · Joinville, SC</div>
         <ul>
-          <li>Regras centrais do sistema, como cálculo de frete e pagamento de faturas.</li>
-          <li>Relatórios com alto volume de dados e otimização de consultas no PostgreSQL.</li>
-          <li>Integrações EDI PROCEDA, NF-e e CT-e, ocorrências de entrega e pedidos.</li>
-          <li>Front-end web em AngularJS.</li>
+          <li><span class="pt">Regras centrais do sistema, como cálculo de frete e pagamento de faturas.</span><span class="en" lang="en">Core business rules such as freight calculation and invoice payment.</span></li>
+          <li><span class="pt">Relatórios com alto volume de dados e otimização de consultas no PostgreSQL.</span><span class="en" lang="en">High-volume reports and PostgreSQL query optimization.</span></li>
+          <li><span class="pt">Integrações EDI PROCEDA, NF-e e CT-e, ocorrências de entrega e pedidos.</span><span class="en" lang="en">PROCEDA EDI, NF-e and CT-e integrations, delivery events and orders.</span></li>
+          <li><span class="pt">Front-end web em AngularJS.</span><span class="en" lang="en">Web front-end in AngularJS.</span></li>
         </ul>
         <div class="chips"><span class="chip">Java</span><span class="chip">PostgreSQL</span><span class="chip">AngularJS</span><span class="chip">REST</span></div>
       </div>
       <div class="tl__item reveal">
-        <div class="tl__head"><h3 class="tl__role">Programador Júnior</h3><span class="tl__date">jul 2018 – jan 2019</span></div>
-        <div class="tl__org">M&amp;O Sistemas · Tempo integral · Joinville, SC</div>
+        <div class="tl__head"><h3 class="tl__role"><span class="pt">Programador Júnior</span><span class="en" lang="en">Junior Developer</span></h3><span class="tl__date"><span class="pt">jul 2018 – jan 2019</span><span class="en" lang="en">Jul 2018 – Jan 2019</span></span></div>
+        <div class="tl__org">M&amp;O Sistemas · <span class="pt">Tempo integral</span><span class="en" lang="en">Full-time</span> · Joinville, SC</div>
         <ul>
-          <li>Análise e correção de problemas de clientes, investigando a causa raiz no código e no banco.</li>
-          <li>Testes unitários com JUnit e Mockito para evitar regressões.</li>
+          <li><span class="pt">Análise e correção de problemas de clientes, investigando a causa raiz no código e no banco.</span><span class="en" lang="en">Investigated and fixed client issues, tracing root causes in code and database.</span></li>
+          <li><span class="pt">Testes unitários com JUnit e Mockito para evitar regressões.</span><span class="en" lang="en">Unit tests with JUnit and Mockito to prevent regressions.</span></li>
         </ul>
         <div class="chips"><span class="chip">Java</span><span class="chip">JUnit</span><span class="chip">Mockito</span></div>
       </div>
@@ -280,44 +290,44 @@
 
 <section class="section" id="projetos">
   <div class="wrap">
-    <p class="section__kicker">// projetos</p>
-    <h2 class="section__title">Projetos pessoais</h2>
-    <p class="section__lead">Código aberto no GitHub, do back-end ao front-end.</p>
+    <p class="section__kicker">// <span class="pt">projetos</span><span class="en" lang="en">projects</span></p>
+    <h2 class="section__title"><span class="pt">Projetos pessoais</span><span class="en" lang="en">Personal projects</span></h2>
+    <p class="section__lead"><span class="pt">Código aberto no GitHub, do back-end ao front-end.</span><span class="en" lang="en">Open source on GitHub, from back end to front end.</span></p>
     <div class="projects">
       <a class="project reveal" href="https://github.com/Jean8791/agro-back" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>agro-back</h3>
-        <p>API multi-tenant de gestão para o agronegócio: produtores, usuários e Raio-X de preços, com JWT e rate limiting.</p>
+        <p><span class="pt">API multi-tenant de gestão para o agronegócio: produtores, usuários e Raio-X de preços, com JWT e rate limiting.</span><span class="en" lang="en">Multi-tenant management API for agribusiness: producers, users and price insights, with JWT and rate limiting.</span></p>
         <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">Flyway</span><span class="chip">PostgreSQL</span></div>
       </a>
       <a class="project reveal" href="https://github.com/Jean8791/agro-front" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>agro-front</h3>
-        <p>Front-end da plataforma do agronegócio, com autenticação JWT e refresh token.</p>
+        <p><span class="pt">Front-end da plataforma do agronegócio, com autenticação JWT e refresh token.</span><span class="en" lang="en">Front end of the agribusiness platform, with JWT authentication and refresh tokens.</span></p>
         <div class="chips"><span class="chip">Angular 21</span><span class="chip">TypeScript</span></div>
       </a>
       <a class="project reveal" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>marknow-api</h3>
-        <p>API do MarkNow, SaaS de agendamento por horários: multi-tenant, assinaturas e convites.</p>
+        <p><span class="pt">API do MarkNow, SaaS de agendamento por horários: multi-tenant, assinaturas e convites.</span><span class="en" lang="en">API for MarkNow, a time-slot scheduling SaaS: multi-tenant, subscriptions and invitations.</span></p>
         <div class="chips"><span class="chip">Java 17</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span></div>
       </a>
       <a class="project reveal" href="https://github.com/Jean8791/marknow-web" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>marknow-web</h3>
-        <p>Front-end do MarkNow: login, cadastro por convite e painel administrativo.</p>
+        <p><span class="pt">Front-end do MarkNow: login, cadastro por convite e painel administrativo.</span><span class="en" lang="en">MarkNow front end: login, invitation-based sign-up and admin panel.</span></p>
         <div class="chips"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Tailwind</span></div>
       </a>
       <a class="project reveal" href="https://github.com/Jean8791/quarkus-batch-processor" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>quarkus-batch-processor</h3>
-        <p>Biblioteca para processar milhões de registros com pouca memória, usando Stateless Session e streaming por cursor.</p>
+        <p><span class="pt">Biblioteca para processar milhões de registros com pouca memória, usando Stateless Session e streaming por cursor.</span><span class="en" lang="en">Library to process millions of records with low memory, using Stateless Sessions and cursor-based streaming.</span></p>
         <div class="chips"><span class="chip">Java 17+</span><span class="chip">Quarkus</span><span class="chip">Hibernate</span></div>
       </a>
       <a class="project reveal" href="https://github.com/Jean8791/matriz-pratica-web" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>matriz-pratica-web</h3>
-        <p>Aplicação web Matriz Prática, com migrations, testes e release automatizado na Vercel.</p>
+        <p><span class="pt">Aplicação web Matriz Prática, com migrations, testes e release automatizado na Vercel.</span><span class="en" lang="en">Matriz Prática web app, with migrations, tests and automated releases on Vercel.</span></p>
         <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">Jest</span></div>
       </a>
     </div>
@@ -326,11 +336,11 @@
 
 <section class="section section--alt" id="formacao">
   <div class="wrap">
-    <p class="section__kicker">// formação</p>
-    <h2 class="section__title">Formação</h2>
+    <p class="section__kicker">// <span class="pt">formação</span><span class="en" lang="en">education</span></p>
+    <h2 class="section__title"><span class="pt">Formação</span><span class="en" lang="en">Education</span></h2>
     <div class="edu">
       <div class="card reveal">
-        <div class="tl__head"><h3>Tecnólogo em Análise e Desenvolvimento de Sistemas</h3><span class="tl__date">2017 – 2019</span></div>
+        <div class="tl__head"><h3><span class="pt">Tecnólogo em Análise e Desenvolvimento de Sistemas</span><span class="en" lang="en">Associate Degree in Systems Analysis and Development</span></h3><span class="tl__date">2017 – 2019</span></div>
         <p>SENAI Norte · Joinville, SC</p>
       </div>
     </div>
@@ -339,11 +349,11 @@
 
 <section class="contact" id="contato">
   <div class="wrap">
-    <p class="section__kicker">// contato</p>
-    <h2 class="section__title">Vamos conversar?</h2>
-    <p class="section__lead">Estou aberto a vagas de Desenvolvedor Backend Java, Full Stack ou Mobile Flutter, em modelo remoto ou híbrido, com base em Joinville, SC.</p>
+    <p class="section__kicker">// <span class="pt">contato</span><span class="en" lang="en">contact</span></p>
+    <h2 class="section__title"><span class="pt">Vamos conversar?</span><span class="en" lang="en">Let's talk?</span></h2>
+    <p class="section__lead"><span class="pt">Estou aberto a vagas de Desenvolvedor Backend Java, Full Stack ou Mobile Flutter, em modelo remoto ou híbrido, com base em Joinville, SC.</span><span class="en" lang="en">I'm open to Java Backend, Full Stack or Flutter Mobile Developer roles, remote or hybrid, based in Joinville, Brazil.</span></p>
     <div class="contact__links">
-      <a class="btn btn--primary" href="https://www.linkedin.com/in/jean-leonardo-de-souza-moraes-b54416123" target="_blank" rel="noopener">Falar pelo LinkedIn</a>
+      <a class="btn btn--primary" href="https://www.linkedin.com/in/jean-leonardo-de-souza-moraes-b54416123" target="_blank" rel="noopener"><span class="pt">Falar pelo LinkedIn</span><span class="en" lang="en">Message me on LinkedIn</span></a>
       <a class="btn btn--ghost" href="https://github.com/Jean8791" target="_blank" rel="noopener">github.com/Jean8791</a>
     </div>
   </div>
@@ -353,6 +363,28 @@
 
 <script>
   document.body.classList.remove("no-js");
+  const META = {
+    pt: { title: document.title, desc: document.querySelector('meta[name="description"]').content },
+    en: { title: "Jean Moraes — Full Stack Developer | Java, Quarkus, Flutter",
+          desc: "Full Stack Developer with 8+ years of experience in Java backends (Quarkus, Spring Boot), microservices, EDI and tax-document integrations, AWS and Flutter mobile apps." }
+  };
+  const langBtn = document.querySelector(".lang");
+  function setLang(lang) {
+    document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+    langBtn.textContent = lang === "en" ? "PT" : "EN";
+    document.title = META[lang].title;
+    document.querySelector('meta[name="description"]').content = META[lang].desc;
+    try { localStorage.setItem("lang", lang); } catch (e) {}
+  }
+  let initial = "pt";
+  const param = new URLSearchParams(location.search).get("lang");
+  let saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  if (param === "en" || param === "pt") initial = param;
+  else if (saved === "en" || saved === "pt") initial = saved;
+  else if (!(navigator.language || "pt").toLowerCase().startsWith("pt")) initial = "en";
+  setLang(initial);
+  langBtn.addEventListener("click", () => setLang(document.documentElement.lang === "en" ? "pt" : "en"));
   document.getElementById("ano").textContent = new Date().getFullYear();
   const toggle = document.querySelector(".nav__toggle");
   const links = document.querySelector(".nav__links");
