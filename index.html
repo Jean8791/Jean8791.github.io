@@ -112,6 +112,10 @@
   .project h3 { font-size: 1.05rem; margin-bottom: 8px; }
   .project p { color: var(--muted); font-size: .92rem; flex: 1; }
   .project .chips { margin-top: 16px; }
+  .project--demo { position: relative; }
+  .stretched::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+  .demo { position: relative; z-index: 1; align-self: flex-start; margin-top: 14px; font-size: .85rem; font-weight: 600; color: var(--accent-2); border: 1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.08); padding: 6px 12px; border-radius: 8px; }
+  .demo:hover { background: rgba(52,211,153,.16); }
 
   .edu { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 720px; }
 
@@ -300,12 +304,13 @@
         <p><span class="pt">API multi-tenant de gestão para o agronegócio: produtores, usuários e Raio-X de preços, com JWT e rate limiting.</span><span class="en" lang="en">Multi-tenant management API for agribusiness: producers, users and price insights, with JWT and rate limiting.</span></p>
         <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">Flyway</span><span class="chip">PostgreSQL</span></div>
       </a>
-      <a class="project reveal" href="https://github.com/Jean8791/agro-front" target="_blank" rel="noopener">
+      <div class="project project--demo reveal">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3>agro-front</h3>
+        <h3><a class="stretched" href="https://github.com/Jean8791/agro-front" target="_blank" rel="noopener">agro-front</a></h3>
         <p><span class="pt">Front-end da plataforma do agronegócio, com autenticação JWT e refresh token.</span><span class="en" lang="en">Front end of the agribusiness platform, with JWT authentication and refresh tokens.</span></p>
         <div class="chips"><span class="chip">Angular 21</span><span class="chip">TypeScript</span></div>
-      </a>
+        <a class="demo" href="https://agro-front-seven.vercel.app" target="_blank" rel="noopener">▶ <span class="pt">Ver demo</span><span class="en" lang="en">Live demo</span></a>
+      </div>
       <a class="project reveal" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>marknow-api</h3>
