@@ -117,6 +117,21 @@
   .demo { position: relative; z-index: 1; align-self: flex-start; margin-top: 14px; font-size: .85rem; font-weight: 600; color: var(--accent-2); border: 1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.08); padding: 6px 12px; border-radius: 8px; }
   .demo:hover { background: rgba(52,211,153,.16); }
 
+  .feature { display: grid; grid-template-columns: 1fr; gap: 26px; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-bottom: 18px; }
+  .feature__shot { display: block; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 50px rgba(0,0,0,.35); transition: transform .2s; }
+  .feature__shot:hover { transform: translateY(-3px); }
+  .feature__shot img { display: block; width: 100%; height: auto; }
+  .feature__badge { display: inline-block; font-family: "JetBrains Mono", monospace; font-size: .75rem; color: var(--accent-2); border: 1px solid rgba(52,211,153,.35); background: rgba(52,211,153,.08); padding: 3px 9px; border-radius: 999px; margin-bottom: 12px; }
+  .feature h3 { font-size: 1.45rem; letter-spacing: -.02em; margin-bottom: 10px; }
+  .feature p { color: var(--muted); font-size: .95rem; }
+  .feature ul { list-style: none; color: var(--muted); font-size: .9rem; margin: 14px 0 0; }
+  .feature li { position: relative; padding-left: 18px; margin-bottom: 5px; }
+  .feature li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
+  .feature__body { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: start; }
+  .feature .chips { margin-top: 0; }
+  .feature__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+  .feature__cta .btn { padding: 9px 16px; font-size: .88rem; }
+  .feature__note { margin-top: 12px; font-size: .8rem !important; }
   .edu { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 720px; }
 
   .contact { text-align: center; padding: 100px 0; }
@@ -136,6 +151,7 @@
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 
   @media (max-width: 900px) {
+    .feature__body { grid-template-columns: 1fr; gap: 18px; }
     .projects, .stack { grid-template-columns: repeat(2, 1fr); }
     .stats { grid-template-columns: repeat(2, 1fr); }
   }
@@ -149,6 +165,7 @@
     .hero__grid { grid-template-columns: 1fr; }
     .hero__photo { width: 140px; height: 140px; order: -1; }
     .cards, .projects, .stack { grid-template-columns: 1fr; }
+    .feature { padding: 18px; }
     .section { padding: 64px 0; }
     .stat b { font-size: 1.35rem; white-space: nowrap; }
   }
@@ -299,6 +316,31 @@
     <p class="section__kicker">// <span class="pt">projetos</span><span class="en" lang="en">projects</span></p>
     <h2 class="section__title"><span class="pt">Projetos pessoais</span><span class="en" lang="en">Personal projects</span></h2>
     <p class="section__lead"><span class="pt">Código aberto no GitHub, do back-end ao front-end.</span><span class="en" lang="en">Open source on GitHub, from back end to front end.</span></p>
+    <article class="feature reveal">
+      <a class="feature__shot" href="https://agro-front-vsp7.onrender.com" target="_blank" rel="noopener"><img src="assets/agro-raiox.jpg" alt="Histórico de simulações do Raio-X com semáforo de preço" width="1568" height="500" loading="lazy" /></a>
+      <div class="feature__body">
+        <div>
+        <span class="feature__badge"><span class="pt">Destaque · projeto acadêmico</span><span class="en" lang="en">Featured · academic project</span></span>
+        <h3>Agro · Raio-X <span class="pt">do preço mínimo</span><span class="en" lang="en">minimum price</span></h3>
+        <p><span class="pt">Plataforma multi-tenant para o produtor rural descobrir o menor preço que cobre os custos da produção. O cálculo roda no back-end, em BigDecimal, e a tela só apresenta o resultado com um semáforo.</span><span class="en" lang="en">Multi-tenant platform that helps farmers find the lowest price that covers production costs. The calculation runs on the back end with BigDecimal, and the UI only presents the result with a traffic-light status.</span></p>
+        <ul>
+          <li><span class="pt">Isolamento por produtor com filtro do Hibernate e escopo resolvido a cada requisição.</span><span class="en" lang="en">Per-tenant isolation with Hibernate filters and scope resolved on every request.</span></li>
+          <li><span class="pt">JWT com refresh token rotativo, papéis e permissões por endpoint e limite de tentativas de login.</span><span class="en" lang="en">JWT with rotating refresh tokens, roles and per-endpoint permissions, and login rate limiting.</span></li>
+          <li><span class="pt">API documentada com OpenAPI/Swagger, migrations com Flyway e deploy no Render com PostgreSQL (Neon).</span><span class="en" lang="en">API documented with OpenAPI/Swagger, Flyway migrations and deployment on Render with PostgreSQL (Neon).</span></li>
+        </ul>
+        </div>
+        <div>
+        <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span><span class="chip">Angular 21</span><span class="chip">Docker</span></div>
+        <div class="feature__cta">
+          <a class="btn btn--primary" href="https://agro-front-vsp7.onrender.com" target="_blank" rel="noopener">▶ <span class="pt">Abrir demo</span><span class="en" lang="en">Live demo</span></a>
+          <a class="btn btn--ghost" href="https://agro-back-nndj.onrender.com/swagger-ui" target="_blank" rel="noopener">API · Swagger</a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/agro-back" target="_blank" rel="noopener">agro-back</a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/agro-front" target="_blank" rel="noopener">agro-front</a>
+        </div>
+        <p class="feature__note"><span class="pt">Na demo, use o botão “Entrar como visitante”. O servidor gratuito pode levar até 1 minuto para responder no primeiro acesso.</span><span class="en" lang="en">In the demo, use the “Entrar como visitante” (visitor) button. The free server may take up to 1 minute to respond on first access.</span></p>
+        </div>
+      </div>
+    </article>
     <div class="projects">
       <div class="project project--demo reveal">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
@@ -306,19 +348,6 @@
         <p><span class="pt">Pedidos e agendamento de entrega em 3 microsserviços orientados a eventos: RabbitMQ com DLQ e retry, MongoDB por serviço, JWT RS256 e testes com Testcontainers.</span><span class="en" lang="en">Orders and delivery scheduling across 3 event-driven microservices: RabbitMQ with DLQ and retry, MongoDB per service, RS256 JWT and Testcontainers tests.</span></p>
         <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3.5</span><span class="chip">RabbitMQ</span><span class="chip">MongoDB</span></div>
         <a class="demo" href="https://order-scheduling-orders.onrender.com/swagger-ui.html" target="_blank" rel="noopener">▶ <span class="pt">Ver demo</span><span class="en" lang="en">Live demo</span></a>
-      </div>
-      <a class="project reveal" href="https://github.com/Jean8791/agro-back" target="_blank" rel="noopener">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3>agro-back</h3>
-        <p><span class="pt">API multi-tenant de gestão para o agronegócio: produtores, usuários e Raio-X de preços, com JWT e rate limiting.</span><span class="en" lang="en">Multi-tenant management API for agribusiness: producers, users and price insights, with JWT and rate limiting.</span></p>
-        <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">Flyway</span><span class="chip">PostgreSQL</span></div>
-      </a>
-      <div class="project project--demo reveal">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3><a class="stretched" href="https://github.com/Jean8791/agro-front" target="_blank" rel="noopener">agro-front</a></h3>
-        <p><span class="pt">Front-end da plataforma do agronegócio, com autenticação JWT e refresh token.</span><span class="en" lang="en">Front end of the agribusiness platform, with JWT authentication and refresh tokens.</span></p>
-        <div class="chips"><span class="chip">Angular 21</span><span class="chip">TypeScript</span></div>
-        <a class="demo" href="https://agro-front-seven.vercel.app" target="_blank" rel="noopener">▶ <span class="pt">Ver demo</span><span class="en" lang="en">Live demo</span></a>
       </div>
       <a class="project reveal" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
