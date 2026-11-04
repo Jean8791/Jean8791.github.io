@@ -126,12 +126,25 @@
   .feature p { color: var(--muted); font-size: .95rem; }
   .feature ul { list-style: none; color: var(--muted); font-size: .9rem; margin: 14px 0 0; }
   .feature li { position: relative; padding-left: 18px; margin-bottom: 5px; }
+  .feature code { font-family: "JetBrains Mono", monospace; font-size: .82em; color: var(--text); }
   .feature li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
   .feature__body { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: start; }
   .feature .chips { margin-top: 0; }
   .feature__cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
   .feature__cta .btn { padding: 9px 16px; font-size: .88rem; }
   .feature__note { margin-top: 12px; font-size: .8rem !important; }
+  .feature__diagram { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 14px; }
+  .arch { display: block; width: 100%; height: auto; font-family: "JetBrains Mono", monospace; }
+  .arch .box { fill: var(--card); stroke: var(--border); stroke-width: 1.5; }
+  .arch .box--bus { stroke: var(--accent-2); }
+  .arch .db { fill: rgba(56,189,248,.08); stroke: rgba(56,189,248,.45); stroke-width: 1.2; }
+  .arch .name { fill: var(--text); font-size: 15px; font-weight: 600; }
+  .arch .sub { fill: var(--muted); font-size: 11px; }
+  .arch .lbl { fill: var(--accent); font-size: 11px; }
+  .arch .lbl--bus { fill: var(--accent-2); }
+  .arch .line { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  .arch .line--dash { stroke-dasharray: 5 4; }
+  .arch .head { fill: var(--muted); }
   .edu { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 720px; }
 
   .contact { text-align: center; padding: 100px 0; }
@@ -341,14 +354,69 @@
         </div>
       </div>
     </article>
-    <div class="projects">
-      <div class="project project--demo reveal">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3><a class="stretched" href="https://github.com/Jean8791/order-scheduling" target="_blank" rel="noopener">order-scheduling</a></h3>
-        <p><span class="pt">Pedidos e agendamento de entrega em 3 microsserviços orientados a eventos: RabbitMQ com DLQ e retry, MongoDB por serviço, JWT RS256 e testes com Testcontainers.</span><span class="en" lang="en">Orders and delivery scheduling across 3 event-driven microservices: RabbitMQ with DLQ and retry, MongoDB per service, RS256 JWT and Testcontainers tests.</span></p>
-        <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3.5</span><span class="chip">RabbitMQ</span><span class="chip">MongoDB</span></div>
-        <a class="demo" href="https://order-scheduling-orders.onrender.com/swagger-ui.html" target="_blank" rel="noopener">▶ <span class="pt">Ver demo</span><span class="en" lang="en">Live demo</span></a>
+    <article class="feature reveal">
+      <div class="feature__diagram">
+        <svg class="arch" viewBox="0 0 940 228" role="img" aria-labelledby="arch-title">
+          <title id="arch-title">auth-service emite o JWT; order-service e scheduling-service trocam eventos pelo RabbitMQ; cada serviço tem o próprio MongoDB</title>
+          <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+          <rect class="box" x="10" y="20" width="170" height="78" rx="10"/>
+          <text class="name" x="95" y="52" text-anchor="middle">auth-service</text>
+          <text class="sub" x="95" y="74" text-anchor="middle">Spring Security</text>
+          <text class="sub" x="95" y="89" text-anchor="middle">emite JWT RS256</text>
+          <rect class="box" x="260" y="20" width="170" height="78" rx="10"/>
+          <text class="name" x="345" y="52" text-anchor="middle">order-service</text>
+          <text class="sub" x="345" y="74" text-anchor="middle">pedidos por dono</text>
+          <text class="sub" x="345" y="89" text-anchor="middle">valida o token</text>
+          <rect class="box box--bus" x="510" y="20" width="170" height="78" rx="10"/>
+          <text class="name" x="595" y="52" text-anchor="middle">RabbitMQ</text>
+          <text class="sub" x="595" y="74" text-anchor="middle">eventos topic</text>
+          <text class="sub" x="595" y="89" text-anchor="middle">retry + DLQ</text>
+          <rect class="box" x="760" y="20" width="170" height="78" rx="10"/>
+          <text class="name" x="845" y="52" text-anchor="middle">scheduling-service</text>
+          <text class="sub" x="845" y="74" text-anchor="middle">reserva atômica</text>
+          <text class="sub" x="845" y="89" text-anchor="middle">de vaga</text>
+          <path class="line line--dash" d="M180 59H254" marker-end="url(#arrow)"/>
+          <text class="lbl" x="220" y="50" text-anchor="middle">JWT</text>
+          <path class="line" d="M430 48H504" marker-end="url(#arrow)"/>
+          <path class="line" d="M510 70H436" marker-end="url(#arrow)"/>
+          <path class="line" d="M680 48H754" marker-end="url(#arrow)"/>
+          <path class="line" d="M760 70H686" marker-end="url(#arrow)"/>
+          <text class="lbl lbl--bus" x="595" y="128" text-anchor="middle">order.created · order.canceled →</text>
+          <text class="lbl lbl--bus" x="595" y="146" text-anchor="middle">← scheduling.confirmed · rejected</text>
+          <path class="line" d="M95 98V170"/>
+          <path class="line" d="M345 98V170"/>
+          <path class="line" d="M845 98V170"/>
+          <ellipse class="db" cx="95" cy="176" rx="58" ry="10"/><path class="db" d="M37 176v38a58 10 0 0 0 116 0v-38"/><ellipse class="db" cx="95" cy="176" rx="58" ry="10"/>
+          <text class="sub" x="95" y="206" text-anchor="middle">MongoDB · users</text>
+          <ellipse class="db" cx="345" cy="176" rx="58" ry="10"/><path class="db" d="M287 176v38a58 10 0 0 0 116 0v-38"/><ellipse class="db" cx="345" cy="176" rx="58" ry="10"/>
+          <text class="sub" x="345" y="206" text-anchor="middle">MongoDB · orders</text>
+          <ellipse class="db" cx="845" cy="176" rx="72" ry="10"/><path class="db" d="M773 176v38a72 10 0 0 0 144 0v-38"/><ellipse class="db" cx="845" cy="176" rx="72" ry="10"/>
+          <text class="sub" x="845" y="206" text-anchor="middle">MongoDB · schedulings</text>
+        </svg>
       </div>
+      <div class="feature__body">
+        <div>
+        <span class="feature__badge"><span class="pt">Destaque · estudo de Spring Boot</span><span class="en" lang="en">Featured · Spring Boot study</span></span>
+        <h3>order-scheduling · <span class="pt">pedidos e agendamento de entrega</span><span class="en" lang="en">orders and delivery scheduling</span></h3>
+        <p><span class="pt">Três microsserviços Spring Boot que se comunicam por eventos: o pedido é criado, o agendamento reserva uma vaga de entrega e devolve o resultado pelo RabbitMQ. O código é comentado para servir de material de estudo do framework.</span><span class="en" lang="en">Three Spring Boot microservices that talk through events: an order is created, the scheduler books a delivery slot and sends the result back through RabbitMQ. The code is commented to work as study material for the framework.</span></p>
+        <ul>
+          <li><span class="pt">Spring Security como resource server: JWT RS256, papéis no token com <code>@PreAuthorize</code> e cada usuário vendo só os próprios pedidos.</span><span class="en" lang="en">Spring Security as a resource server: RS256 JWT, token roles with <code>@PreAuthorize</code>, and each user seeing only their own orders.</span></li>
+          <li><span class="pt">Spring AMQP com retentativa e DLQ, consumidores idempotentes e reserva de vaga atômica com <code>findAndModify</code> no MongoDB.</span><span class="en" lang="en">Spring AMQP with retries and DLQ, idempotent consumers and atomic slot booking with MongoDB <code>findAndModify</code>.</span></li>
+          <li><span class="pt">Spring MVC, Spring Data MongoDB e Bean Validation, com testes de API, de serviço e de integração com Testcontainers rodando no GitHub Actions.</span><span class="en" lang="en">Spring MVC, Spring Data MongoDB and Bean Validation, with API, service and Testcontainers integration tests running on GitHub Actions.</span></li>
+        </ul>
+        </div>
+        <div>
+        <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Security</span><span class="chip">Spring Data MongoDB</span><span class="chip">RabbitMQ</span><span class="chip">Testcontainers</span></div>
+        <div class="feature__cta">
+          <a class="btn btn--primary" href="https://order-scheduling-orders.onrender.com/swagger-ui.html" target="_blank" rel="noopener">▶ <span class="pt">Abrir API · Swagger</span><span class="en" lang="en">Open API · Swagger</span></a>
+          <a class="btn btn--ghost" href="https://order-scheduling-auth.onrender.com/swagger-ui.html" target="_blank" rel="noopener"><span class="pt">Login · Swagger</span><span class="en" lang="en">Auth · Swagger</span></a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/order-scheduling" target="_blank" rel="noopener"><span class="pt">Código</span><span class="en" lang="en">Source</span></a>
+        </div>
+        <p class="feature__note"><span class="pt">Para testar: cadastre um usuário e faça login no Swagger do auth-service, copie o token e use o botão Authorize no order-service. O servidor gratuito pode levar até 1 minuto para responder no primeiro acesso.</span><span class="en" lang="en">To try it: register and log in on the auth-service Swagger, copy the token and use the Authorize button on the order-service. The free server may take up to 1 minute to respond on first access.</span></p>
+        </div>
+      </div>
+    </article>
+    <div class="projects">
       <a class="project reveal" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>marknow-api</h3>
