@@ -380,6 +380,31 @@
       </div>
     </article>
     <article class="feature reveal">
+      <a class="feature__shot" href="https://cronoanalise-client.vercel.app" target="_blank" rel="noopener"><img src="assets/cronoanalise-calculo.jpg" alt="Resultado de uma cronoanálise com tempo padrão, peças por hora e por turno, aviso de amostra insuficiente e memória de cálculo" width="1568" height="560" loading="lazy" /></a>
+      <div class="feature__body">
+        <div>
+        <span class="feature__badge"><span class="pt">Destaque · projeto acadêmico</span><span class="en" lang="en">Featured · academic project</span></span>
+        <h3>Cronoanálise · <span class="pt">tempo padrão e capacidade de produção</span><span class="en" lang="en">standard time and production capacity</span></h3>
+        <p><span class="pt">Sistema de cronoanálise industrial nascido num projeto do SENAI e reescrito do zero: cronometra as operações de um produto e calcula o tempo padrão, as peças por hora e por turno e quantos ciclos a amostra precisa ter.</span><span class="en" lang="en">Industrial time-study system born from a SENAI project and rewritten from scratch: it times a product's operations and computes the standard time, pieces per hour and per shift, and how many cycles the sample needs.</span></p>
+        <ul>
+          <li><span class="pt">Cálculo na API, em BigDecimal: número de ciclos pelo método estatístico, com z pelo nível de confiança, e fator de tolerância pelo turno real descontando as paradas.</span><span class="en" lang="en">Calculation in the API with BigDecimal: required cycles by the statistical method, with z from the confidence level, and the allowance factor from the real shift minus breaks.</span></li>
+          <li><span class="pt">Segurança refeita: senhas com BCrypt, JWT, perfis admin, professor e aluno, bloqueio de usuário e limite de tentativas de login.</span><span class="en" lang="en">Security redone: BCrypt passwords, JWT, admin, teacher and student roles, user blocking and login rate limiting.</span></li>
+          <li><span class="pt">Migrations com Flyway, testes de integração com Testcontainers e memória de cálculo exibida na tela para conferência.</span><span class="en" lang="en">Flyway migrations, integration tests with Testcontainers and the full calculation shown on screen for review.</span></li>
+        </ul>
+        </div>
+        <div>
+        <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Security</span><span class="chip">PostgreSQL</span><span class="chip">Flyway</span><span class="chip">Vue 3</span><span class="chip">Vuetify</span></div>
+        <div class="feature__cta">
+          <a class="btn btn--primary" href="https://cronoanalise-client.vercel.app" target="_blank" rel="noopener">▶ <span class="pt">Abrir demo</span><span class="en" lang="en">Live demo</span></a>
+          <a class="btn btn--ghost" href="https://cronoanalise-back.onrender.com" target="_blank" rel="noopener">API · Swagger</a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/cronoanalise" target="_blank" rel="noopener">cronoanalise</a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/cronoanalise-client" target="_blank" rel="noopener">cronoanalise-client</a>
+        </div>
+        <p class="feature__note"><span class="pt">Na demo, use o botão “Entrar como visitante”. O servidor gratuito pode levar até 1 minuto para responder no primeiro acesso.</span><span class="en" lang="en">In the demo, use the “Entrar como visitante” (visitor) button. The free server may take up to 1 minute to respond on first access.</span></p>
+        </div>
+      </div>
+    </article>
+    <article class="feature reveal">
       <div class="feature__diagram">
         <svg class="arch" viewBox="0 0 940 228" role="img" aria-labelledby="arch-title">
           <title id="arch-title">auth-service emite o JWT; order-service e scheduling-service trocam eventos pelo RabbitMQ; cada serviço tem o próprio MongoDB</title>
