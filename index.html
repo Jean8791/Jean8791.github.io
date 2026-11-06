@@ -355,6 +355,31 @@
       </div>
     </article>
     <article class="feature reveal">
+      <a class="feature__shot" href="https://marknow-web.vercel.app" target="_blank" rel="noopener"><img src="assets/marknow-agenda.jpg" alt="Agenda do dia do MarkNow com colunas por profissional, horários e status do aviso por WhatsApp" width="1552" height="500" loading="lazy" /></a>
+      <div class="feature__body">
+        <div>
+        <span class="feature__badge"><span class="pt">Destaque · projeto acadêmico</span><span class="en" lang="en">Featured · academic project</span></span>
+        <h3>MarkNow · <span class="pt">agenda para prestadores de serviço</span><span class="en" lang="en">scheduling for service providers</span></h3>
+        <p><span class="pt">SaaS multi-tenant de agenda interna para salões, clínicas e serviços com vários profissionais: cadastro por convite, planos com quota mensal e agendamento em slots de 30 minutos dentro da disponibilidade de cada profissional.</span><span class="en" lang="en">Multi-tenant scheduling SaaS for salons, clinics and services with several professionals: invitation-based sign-up, plans with monthly quotas and 30-minute slot booking within each professional’s availability.</span></p>
+        <ul>
+          <li><span class="pt">Nenhum horário sobreposto, garantido no próprio PostgreSQL com constraint <code>EXCLUDE</code> sobre <code>tstzrange</code>: requisições simultâneas no mesmo horário viram <code>409</code>.</span><span class="en" lang="en">No overlapping bookings, enforced by PostgreSQL itself with an <code>EXCLUDE</code> constraint on <code>tstzrange</code>: concurrent requests for the same slot get a <code>409</code>.</span></li>
+          <li><span class="pt">Isolamento por prestador em toda consulta, perfis admin e operacional, JWT e limite de tentativas no login e no cadastro.</span><span class="en" lang="en">Per-tenant isolation on every query, admin and staff roles, JWT and rate limiting on login and sign-up.</span></li>
+          <li><span class="pt">Horários livres calculados pela API, aviso ao cliente por link do WhatsApp e regras de agenda cobertas por testes unitários.</span><span class="en" lang="en">Free slots computed by the API, customer notice through a WhatsApp link and scheduling rules covered by unit tests.</span></li>
+        </ul>
+        </div>
+        <div>
+        <div class="chips"><span class="chip">Java 17</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span><span class="chip">Flyway</span><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Docker</span></div>
+        <div class="feature__cta">
+          <a class="btn btn--primary" href="https://marknow-web.vercel.app" target="_blank" rel="noopener">▶ <span class="pt">Abrir demo</span><span class="en" lang="en">Live demo</span></a>
+          <a class="btn btn--ghost" href="https://marknow-back.onrender.com" target="_blank" rel="noopener">API · Swagger</a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">marknow-api</a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/marknow-web" target="_blank" rel="noopener">marknow-web</a>
+        </div>
+        <p class="feature__note"><span class="pt">Na demo, use o botão “Entrar como visitante”. O servidor gratuito pode levar até 1 minuto para responder no primeiro acesso.</span><span class="en" lang="en">In the demo, use the “Entrar como visitante” (visitor) button. The free server may take up to 1 minute to respond on first access.</span></p>
+        </div>
+      </div>
+    </article>
+    <article class="feature reveal">
       <div class="feature__diagram">
         <svg class="arch" viewBox="0 0 940 228" role="img" aria-labelledby="arch-title">
           <title id="arch-title">auth-service emite o JWT; order-service e scheduling-service trocam eventos pelo RabbitMQ; cada serviço tem o próprio MongoDB</title>
@@ -417,18 +442,6 @@
       </div>
     </article>
     <div class="projects">
-      <a class="project reveal" href="https://github.com/Jean8791/marknow-api" target="_blank" rel="noopener">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3>marknow-api</h3>
-        <p><span class="pt">API do MarkNow, SaaS de agendamento por horários: multi-tenant, assinaturas e convites.</span><span class="en" lang="en">API for MarkNow, a time-slot scheduling SaaS: multi-tenant, subscriptions and invitations.</span></p>
-        <div class="chips"><span class="chip">Java 17</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span></div>
-      </a>
-      <a class="project reveal" href="https://github.com/Jean8791/marknow-web" target="_blank" rel="noopener">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3>marknow-web</h3>
-        <p><span class="pt">Front-end do MarkNow: login, cadastro por convite e painel administrativo.</span><span class="en" lang="en">MarkNow front end: login, invitation-based sign-up and admin panel.</span></p>
-        <div class="chips"><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Tailwind</span></div>
-      </a>
       <a class="project reveal" href="https://github.com/Jean8791/quarkus-batch-processor" target="_blank" rel="noopener">
         <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
         <h3>quarkus-batch-processor</h3>
