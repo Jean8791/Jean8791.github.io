@@ -134,6 +134,16 @@
   .feature__cta .btn { padding: 9px 16px; font-size: .88rem; }
   .feature__note { margin-top: 12px; font-size: .8rem !important; }
   .feature__diagram { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px 14px; }
+  .feature__code { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  .feature__code-bar { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 16px; border-bottom: 1px solid var(--border); font-family: "JetBrains Mono", monospace; font-size: .75rem; color: var(--muted); }
+  .feature__code-bar b { color: var(--accent-2); font-weight: 500; }
+  .feature__code pre { margin: 0; padding: 18px 20px; overflow-x: auto; font-family: "JetBrains Mono", monospace; font-size: .84rem; line-height: 1.7; color: var(--text); }
+  .feature__code .k { color: #c792ea; }
+  .feature__code .t { color: var(--accent); }
+  .feature__code .s { color: var(--accent-2); }
+  .feature__code .m { color: #f6c177; }
+  .feature__code .n { color: #f78c6c; }
+  .feature__code .a { color: var(--muted); }
   .arch { display: block; width: 100%; height: auto; font-family: "JetBrains Mono", monospace; }
   .arch .box { fill: var(--card); stroke: var(--border); stroke-width: 1.5; }
   .arch .box--bus { stroke: var(--accent-2); }
@@ -466,20 +476,42 @@
         </div>
       </div>
     </article>
-    <div class="projects">
-      <a class="project reveal" href="https://github.com/Jean8791/quarkus-batch-processor" target="_blank" rel="noopener">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3>quarkus-batch-processor</h3>
-        <p><span class="pt">Biblioteca para processar milhões de registros com pouca memória, usando Stateless Session e streaming por cursor.</span><span class="en" lang="en">Library to process millions of records with low memory, using Stateless Sessions and cursor-based streaming.</span></p>
-        <div class="chips"><span class="chip">Java 17+</span><span class="chip">Quarkus</span><span class="chip">Hibernate</span></div>
-      </a>
-      <a class="project reveal" href="https://github.com/Jean8791/matriz-pratica-web" target="_blank" rel="noopener">
-        <div class="project__top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg><svg class="ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></div>
-        <h3>matriz-pratica-web</h3>
-        <p><span class="pt">Aplicação web Matriz Prática, com migrations, testes e release automatizado na Vercel.</span><span class="en" lang="en">Matriz Prática web app, with migrations, tests and automated releases on Vercel.</span></p>
-        <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Docker</span><span class="chip">Jest</span></div>
-      </a>
-    </div>
+    <article class="feature reveal">
+      <div class="feature__code">
+        <div class="feature__code-bar"><span>InvoiceRecalculation.java</span><b>com.github.Jean8791:quarkus-batch-processor:v0.1.0</b></div>
+<pre><span class="a">@Inject</span> <span class="t">FastRecordProcessor</span> processor;
+
+<span class="t">ProcessingResult</span> result = processor.<span class="m">source</span>(<span class="t">Invoice</span>.<span class="k">class</span>)
+        .<span class="m">query</span>(<span class="s">"select i from Invoice i where i.status = :status"</span>)
+        .<span class="m">params</span>(<span class="t">Map</span>.<span class="m">of</span>(<span class="s">"status"</span>, <span class="t">Status</span>.OPEN))
+        .<span class="m">chunkSize</span>(<span class="n">500</span>)
+        .<span class="m">transactionMode</span>(<span class="t">TransactionMode</span>.CHUNK)
+        .<span class="m">retryStrategy</span>(<span class="t">RetryStrategy</span>.<span class="m">fixedDelay</span>(<span class="n">3</span>, <span class="n">200</span>, <span class="t">OptimisticLockException</span>.<span class="k">class</span>))
+        .<span class="m">onError</span>(<span class="t">ErrorStrategy</span>.CONTINUE_ON_ERROR)
+        .<span class="m">onProcess</span>(invoiceService::recalculate)
+        .<span class="m">run</span>();</pre>
+      </div>
+      <div class="feature__body">
+        <div>
+        <span class="feature__badge"><span class="pt">Destaque · biblioteca open source</span><span class="en" lang="en">Featured · open-source library</span></span>
+        <h3>quarkus-batch-processor · <span class="pt">milhões de linhas com pouca memória</span><span class="en" lang="en">millions of rows, low memory</span></h3>
+        <p><span class="pt">Biblioteca Maven para aplicações Quarkus processarem tabelas grandes sem carregar tudo na memória: lê por cursor, processa em chunks e devolve um resumo com contagens e vazão.</span><span class="en" lang="en">Maven library that lets Quarkus applications process large tables without loading them into memory: it reads through a cursor, works in chunks and returns a summary with counts and throughput.</span></p>
+        <ul>
+          <li><span class="pt">Leitura em streaming com <code>StatelessSession</code> e <code>ScrollableResults</code>, uma transação JTA por chunk e retentativas por tipo de exceção.</span><span class="en" lang="en">Streaming reads with <code>StatelessSession</code> and <code>ScrollableResults</code>, one JTA transaction per chunk and retries by exception type.</span></li>
+          <li><span class="pt">Exportação de consultas para CSV e XLSX em streaming, com o Apache POI como dependência opcional.</span><span class="en" lang="en">Streaming export of queries to CSV and XLSX, with Apache POI as an optional dependency.</span></li>
+          <li><span class="pt">Publicada no JitPack com Javadoc, índice Jandex para o CDI e CI no GitHub Actions em Java 17 e 21.</span><span class="en" lang="en">Published on JitPack with Javadoc, a Jandex index for CDI and CI on GitHub Actions for Java 17 and 21.</span></li>
+        </ul>
+        </div>
+        <div>
+        <div class="chips"><span class="chip">Java 17+</span><span class="chip">Quarkus</span><span class="chip">Hibernate ORM</span><span class="chip">JTA</span><span class="chip">Apache POI</span><span class="chip">JitPack</span></div>
+        <div class="feature__cta">
+          <a class="btn btn--primary" href="https://github.com/Jean8791/quarkus-batch-processor" target="_blank" rel="noopener"><span class="pt">Ver no GitHub</span><span class="en" lang="en">View on GitHub</span></a>
+          <a class="btn btn--ghost" href="https://jitpack.io/#Jean8791/quarkus-batch-processor" target="_blank" rel="noopener">JitPack</a>
+          <a class="btn btn--ghost" href="https://javadoc.jitpack.io/com/github/Jean8791/quarkus-batch-processor/v0.1.0/javadoc/" target="_blank" rel="noopener">Javadoc</a>
+        </div>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
