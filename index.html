@@ -155,6 +155,24 @@
   .arch .line { stroke: var(--muted); stroke-width: 1.5; fill: none; }
   .arch .line--dash { stroke-dasharray: 5 4; }
   .arch .head { fill: var(--muted); }
+  .arch .name--s { font-size: 13px; }
+  .arch .lane { fill: rgba(255,255,255,.02); stroke: var(--border); stroke-width: 1; stroke-dasharray: 3 4; }
+  .arch .box--human { stroke: #f6c177; }
+  .arch .box--auto { stroke: var(--accent-2); }
+  .arch .box--bad { stroke: #f78c6c; }
+  .arch .note { fill: var(--bg-alt); stroke: var(--border); stroke-width: 1; }
+  .arch--wide { min-width: 600px; }
+  .arch--col { max-width: 760px; margin: 0 auto; }
+  .scroll-x { overflow-x: auto; }
+  .feature__diagram + .feature__diagram { margin-top: -8px; }
+  .how { display: grid; grid-template-columns: 1fr; gap: 22px; }
+  .how > div:first-child { max-width: 780px; }
+  .how .feature__diagram { justify-self: center; width: 100%; max-width: 760px; }
+  .arch .sub--s { font-size: 10px; }
+  .how__kind { font-family: "JetBrains Mono", monospace; font-size: .75rem; color: var(--accent-2); margin-bottom: 10px; }
+  .news { margin-top: 18px; padding: 12px 14px; border-left: 2px solid var(--accent-2); background: rgba(52,211,153,.06); border-radius: 0 10px 10px 0; }
+  .news b { display: block; font-family: "JetBrains Mono", monospace; font-size: .75rem; font-weight: 500; color: var(--accent-2); }
+  .news ul { margin-top: 8px; }
   .edu { display: grid; grid-template-columns: 1fr; gap: 18px; max-width: 720px; }
 
   .contact { text-align: center; padding: 100px 0; }
@@ -174,7 +192,7 @@
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
 
   @media (max-width: 900px) {
-    .feature__body { grid-template-columns: 1fr; gap: 18px; }
+    .feature__body, .how { grid-template-columns: 1fr; gap: 18px; }
     .projects, .stack { grid-template-columns: repeat(2, 1fr); }
     .stats { grid-template-columns: repeat(2, 1fr); }
   }
@@ -208,6 +226,7 @@
       <a href="#stack">Stack</a>
       <a href="#experiencia"><span class="pt">Experiência</span><span class="en" lang="en">Experience</span></a>
       <a href="#projetos"><span class="pt">Projetos</span><span class="en" lang="en">Projects</span></a>
+      <a href="#como-eu-trabalho"><span class="pt">Como eu trabalho</span><span class="en" lang="en">How I work</span></a>
       <a href="#contato"><span class="pt">Contato</span><span class="en" lang="en">Contact</span></a>
     </div>
   </div>
@@ -247,7 +266,7 @@
   <div class="wrap">
     <p class="section__kicker">// <span class="pt">sobre</span><span class="en" lang="en">about</span></p>
     <h2 class="section__title"><span class="pt">O que eu faço</span><span class="en" lang="en">What I do</span></h2>
-    <p class="section__lead"><span class="pt">Comecei como programador júnior e cresci dentro do mesmo produto, passando por módulos críticos como cálculo de frete e pagamento de faturas. Hoje crio serviços novos, resolvo problemas de performance e cuido de sistemas em produção de ponta a ponta.</span><span class="en" lang="en">I started as a junior developer and grew within the same product, working on critical modules such as freight calculation and invoice payment. Today I build new services, fix performance issues and own production systems end to end.</span></p>
+    <p class="section__lead"><span class="pt">Entrei como programador júnior em 2018 e cresci dentro do mesmo produto, um TMS usado em operação real. Hoje cuido dele de ponta a ponta: crio microsserviços em Java e Quarkus, integro EDI e documentos fiscais (NF-e, CT-e, NFS-e) e entrego apps Flutter em produção. Gosto de problemas em que o sistema precisa ser correto e rápido ao mesmo tempo: relatórios com milhões de linhas, cálculo de frete e fila de recálculo de fatura. Fora do trabalho, construo e publico projetos para praticar o que o dia a dia não pede: SaaS multi-tenant, microsserviços com eventos, uma biblioteca open source e um jogo para meus filhos. Também organizo meu próprio método de desenvolvimento com IA, com regras, revisão e verificação automática, para entregar com mais qualidade e menos retrabalho.</span><span class="en" lang="en">I joined as a junior developer in 2018 and grew within the same product, a TMS used in real operations. Today I look after it end to end: I build microservices in Java and Quarkus, integrate EDI and tax documents (NF-e, CT-e, NFS-e) and ship Flutter apps to production. I like problems where the system has to be correct and fast at the same time: reports with millions of rows, freight calculation and an invoice recalculation queue. Outside work, I build and publish projects to practice what the day job does not ask for: multi-tenant SaaS, event-driven microservices, an open-source library and a game for my kids. I also maintain my own AI-assisted development method, with rules, review and automated verification, to deliver with higher quality and less rework.</span></p>
     <div class="cards">
       <div class="card reveal">
         <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="6" rx="2"/><rect x="2" y="15" width="20" height="6" rx="2"/><path d="M6 6h.01M6 18h.01"/></svg></div>
@@ -351,6 +370,14 @@
           <li><span class="pt">JWT com refresh token rotativo, papéis e permissões por endpoint e limite de tentativas de login.</span><span class="en" lang="en">JWT with rotating refresh tokens, roles and per-endpoint permissions, and login rate limiting.</span></li>
           <li><span class="pt">API documentada com OpenAPI/Swagger, migrations com Flyway e deploy no Render com PostgreSQL (Neon).</span><span class="en" lang="en">API documented with OpenAPI/Swagger, Flyway migrations and deployment on Render with PostgreSQL (Neon).</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">Visual novo no front, com o print atualizado.</span><span class="en" lang="en">New front-end look, with an updated screenshot.</span></li>
+          <li><span class="pt">Cálculo do Raio-X movido para o back e valores no padrão brasileiro.</span><span class="en" lang="en">Raio-X calculation moved to the back end and values in Brazilian format.</span></li>
+          <li><span class="pt">Entrada como visitante e API documentada com OpenAPI/Swagger.</span><span class="en" lang="en">Visitor sign-in and an API documented with OpenAPI/Swagger.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Java 25</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span><span class="chip">Angular 21</span><span class="chip">Docker</span></div>
@@ -376,6 +403,14 @@
           <li><span class="pt">Isolamento por prestador em toda consulta, perfis admin e operacional, JWT e limite de tentativas no login e no cadastro.</span><span class="en" lang="en">Per-tenant isolation on every query, admin and staff roles, JWT and rate limiting on login and sign-up.</span></li>
           <li><span class="pt">Horários livres calculados pela API, aviso ao cliente por link do WhatsApp e regras de agenda cobertas por testes unitários.</span><span class="en" lang="en">Free slots computed by the API, customer notice through a WhatsApp link and scheduling rules covered by unit tests.</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">Agenda interna com profissionais, serviços e agendamentos.</span><span class="en" lang="en">Internal scheduling with professionals, services and bookings.</span></li>
+          <li><span class="pt">Isolamento entre prestadores corrigido, cadastro por convite e autenticação endurecida.</span><span class="en" lang="en">Tenant isolation fixed, invitation-based sign-up and hardened authentication.</span></li>
+          <li><span class="pt">Layout redesenhado, com os totais no topo do dashboard.</span><span class="en" lang="en">Redesigned layout, with the totals at the top of the dashboard.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Java 17</span><span class="chip">Quarkus</span><span class="chip">PostgreSQL</span><span class="chip">Flyway</span><span class="chip">Next.js 16</span><span class="chip">React 19</span><span class="chip">Docker</span></div>
@@ -401,6 +436,14 @@
           <li><span class="pt">Segurança refeita: senhas com BCrypt, JWT, perfis admin, professor e aluno, bloqueio de usuário e limite de tentativas de login.</span><span class="en" lang="en">Security redone: BCrypt passwords, JWT, admin, teacher and student roles, user blocking and login rate limiting.</span></li>
           <li><span class="pt">Migrations com Flyway, testes de integração com Testcontainers e memória de cálculo exibida na tela para conferência.</span><span class="en" lang="en">Flyway migrations, integration tests with Testcontainers and the full calculation shown on screen for review.</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">API reescrita em Spring Boot 3.5 e Java 21, com segurança e cálculo revisados.</span><span class="en" lang="en">API rewritten in Spring Boot 3.5 and Java 21, with security and calculation reviewed.</span></li>
+          <li><span class="pt">Front reescrito em Vue 3, Vuetify 3 e Vite.</span><span class="en" lang="en">Front end rewritten in Vue 3, Vuetify 3 and Vite.</span></li>
+          <li><span class="pt">Novo visual escuro, com tema claro opcional.</span><span class="en" lang="en">New dark look, with an optional light theme.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Security</span><span class="chip">PostgreSQL</span><span class="chip">Flyway</span><span class="chip">Vue 3</span><span class="chip">Vuetify</span></div>
@@ -454,6 +497,41 @@
           <text class="sub" x="845" y="206" text-anchor="middle">MongoDB · schedulings</text>
         </svg>
       </div>
+      <div class="feature__diagram scroll-x">
+          <svg class="arch arch--wide arch--col" viewBox="0 0 720 516" role="img" aria-labelledby="ev-t">
+          <title id="ev-t">Sequência de eventos: o pedido publica order.created, o agendamento reserva a vaga e responde confirmed ou rejected; order.canceled libera a vaga; mensagens com falha vão para a DLQ</title>
+          <defs><marker id="ev-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+          <rect class="box" x="30" y="6" width="160" height="32" rx="8"/>
+          <text class="name name--s" x="110" y="27" text-anchor="middle"><tspan class="pt">order-service</tspan><tspan class="en" lang="en">order-service</tspan></text>
+          <path class="line line--dash" d="M110 38V510"/>
+          <rect class="box box--bus" x="280" y="6" width="160" height="32" rx="8"/>
+          <text class="name name--s" x="360" y="27" text-anchor="middle"><tspan class="pt">RabbitMQ</tspan><tspan class="en" lang="en">RabbitMQ</tspan></text>
+          <path class="line line--dash" d="M360 38V510"/>
+          <rect class="box" x="530" y="6" width="160" height="32" rx="8"/>
+          <text class="name name--s" x="610" y="27" text-anchor="middle"><tspan class="pt">scheduling-service</tspan><tspan class="en" lang="en">scheduling-service</tspan></text>
+          <path class="line line--dash" d="M610 38V510"/>
+          <path class="line" d="M110 62H352" marker-end="url(#ev-seta)"/>
+          <text class="lbl lbl--bus" x="235" y="55" text-anchor="middle"><tspan class="pt">order.created</tspan><tspan class="en" lang="en">order.created</tspan></text>
+          <path class="line" d="M360 106H602" marker-end="url(#ev-seta)"/>
+          <text class="lbl lbl--bus" x="485" y="99" text-anchor="middle"><tspan class="pt">order.created</tspan><tspan class="en" lang="en">order.created</tspan></text>
+          <rect class="note" x="505" y="134" width="210" height="30" rx="7"/>
+          <text class="sub" x="610" y="153" text-anchor="middle"><tspan class="pt">reserva a vaga (atômica)</tspan><tspan class="en" lang="en">books the slot (atomic)</tspan></text>
+          <path class="line" d="M610 194H368" marker-end="url(#ev-seta)"/>
+          <text class="lbl lbl--bus" x="485" y="187" text-anchor="middle"><tspan class="pt">scheduling.confirmed | rejected</tspan><tspan class="en" lang="en">scheduling.confirmed | rejected</tspan></text>
+          <path class="line" d="M360 238H118" marker-end="url(#ev-seta)"/>
+          <text class="lbl lbl--bus" x="235" y="231" text-anchor="middle"><tspan class="pt">SCHEDULED | NOT_SCHEDULED</tspan><tspan class="en" lang="en">SCHEDULED | NOT_SCHEDULED</tspan></text>
+          <path class="line" d="M110 326H352" marker-end="url(#ev-seta)"/>
+          <text class="lbl lbl--bus" x="235" y="319" text-anchor="middle"><tspan class="pt">order.canceled</tspan><tspan class="en" lang="en">order.canceled</tspan></text>
+          <path class="line" d="M360 370H602" marker-end="url(#ev-seta)"/>
+          <text class="lbl lbl--bus" x="485" y="363" text-anchor="middle"><tspan class="pt">order.canceled</tspan><tspan class="en" lang="en">order.canceled</tspan></text>
+          <rect class="note" x="505" y="398" width="210" height="30" rx="7"/>
+          <text class="sub" x="610" y="417" text-anchor="middle"><tspan class="pt">libera a vaga da janela</tspan><tspan class="en" lang="en">frees the window slot</tspan></text>
+          <rect class="note" x="255" y="442" width="210" height="30" rx="7"/>
+          <text class="sub" x="360" y="461" text-anchor="middle"><tspan class="pt">3 falhas: vai para a DLQ</tspan><tspan class="en" lang="en">3 failures: goes to the DLQ</tspan></text>
+          <path class="line line--dash" d="M20 278H700" opacity=".5"/>
+          <text class="sub" x="700" y="273" text-anchor="end"><tspan class="pt">cancelamento</tspan><tspan class="en" lang="en">cancellation</tspan></text>
+          </svg>
+      </div>
       <div class="feature__body">
         <div>
         <span class="feature__badge"><span class="pt">Destaque · estudo de Spring Boot</span><span class="en" lang="en">Featured · Spring Boot study</span></span>
@@ -464,6 +542,14 @@
           <li><span class="pt">Spring AMQP com retentativa e DLQ, consumidores idempotentes e reserva de vaga atômica com <code>findAndModify</code> no MongoDB.</span><span class="en" lang="en">Spring AMQP with retries and DLQ, idempotent consumers and atomic slot booking with MongoDB <code>findAndModify</code>.</span></li>
           <li><span class="pt">Spring MVC, Spring Data MongoDB e Bean Validation, com testes de API, de serviço e de integração com Testcontainers rodando no GitHub Actions.</span><span class="en" lang="en">Spring MVC, Spring Data MongoDB and Bean Validation, with API, service and Testcontainers integration tests running on GitHub Actions.</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">Pedidos restritos ao dono, papéis no token e limite de tentativas de login.</span><span class="en" lang="en">Orders restricted to their owner, roles in the token and login rate limiting.</span></li>
+          <li><span class="pt">Demo online no Render, testes de integração com Testcontainers e CI.</span><span class="en" lang="en">Online demo on Render, Testcontainers integration tests and CI.</span></li>
+          <li><span class="pt">Código comentado para servir de estudo de Spring Boot.</span><span class="en" lang="en">Code commented to work as Spring Boot study material.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Java 21</span><span class="chip">Spring Boot 3.5</span><span class="chip">Spring Security</span><span class="chip">Spring Data MongoDB</span><span class="chip">RabbitMQ</span><span class="chip">Testcontainers</span></div>
@@ -491,6 +577,30 @@
         .<span class="m">onProcess</span>(invoiceService::recalculate)
         .<span class="m">run</span>();</pre>
       </div>
+      <div class="feature__diagram scroll-x">
+          <svg class="arch arch--wide" viewBox="0 0 940 300" role="img" aria-labelledby="qb-t">
+          <title id="qb-t">Sem a biblioteca, getResultList carrega todas as linhas na memória; com ela, um cursor entrega um chunk por vez, que é processado, confirmado e liberado, até gerar o resumo</title>
+          <defs><marker id="qb-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+          <text class="lbl" x="10" y="24" text-anchor="start"><tspan class="pt">getResultList()</tspan><tspan class="en" lang="en">getResultList()</tspan></text>
+          <rect class="box" x="10" y="40" width="200" height="62" rx="9"/><text class="name name--s" x="110" y="67" text-anchor="middle"><tspan class="pt">Tabela grande</tspan><tspan class="en" lang="en">Large table</tspan></text><text class="sub" x="110" y="86" text-anchor="middle"><tspan class="pt">milhões de linhas</tspan><tspan class="en" lang="en">millions of rows</tspan></text>
+          <rect class="box" x="300" y="40" width="290" height="62" rx="9"/><text class="name name--s" x="445" y="67" text-anchor="middle"><tspan class="pt">Todas as linhas na memória</tspan><tspan class="en" lang="en">All rows in memory</tspan></text><text class="sub" x="445" y="86" text-anchor="middle"><tspan class="pt">o heap cresce com a tabela</tspan><tspan class="en" lang="en">heap grows with the table</tspan></text>
+          <rect class="box box--bad" x="680" y="40" width="250" height="62" rx="9"/><text class="name name--s" x="805" y="67" text-anchor="middle"><tspan class="pt">OutOfMemoryError</tspan><tspan class="en" lang="en">OutOfMemoryError</tspan></text><text class="sub" x="805" y="86" text-anchor="middle"><tspan class="pt">a aplicação cai</tspan><tspan class="en" lang="en">the application goes down</tspan></text>
+          <path class="line" d="M210 71H294" marker-end="url(#qb-seta)"/>
+          <path class="line" d="M590 71H674" marker-end="url(#qb-seta)"/>
+          <text class="lbl lbl--bus" x="10" y="156" text-anchor="start"><tspan class="pt">FastRecordProcessor</tspan><tspan class="en" lang="en">FastRecordProcessor</tspan></text>
+          <rect class="box" x="10" y="172" width="130" height="62" rx="9"/><text class="name name--s" x="75" y="199" text-anchor="middle"><tspan class="pt">Tabela grande</tspan><tspan class="en" lang="en">Large table</tspan></text><text class="sub" x="75" y="218" text-anchor="middle"><tspan class="pt">mesma consulta</tspan><tspan class="en" lang="en">same query</tspan></text>
+          <rect class="box box--bus" x="176" y="172" width="150" height="62" rx="9"/><text class="name name--s" x="251" y="199" text-anchor="middle"><tspan class="pt">Cursor</tspan><tspan class="en" lang="en">Cursor</tspan></text><text class="sub" x="251" y="218" text-anchor="middle"><tspan class="pt">StatelessSession</tspan><tspan class="en" lang="en">StatelessSession</tspan></text>
+          <rect class="box" x="362" y="172" width="170" height="62" rx="9"/><text class="name name--s" x="447" y="199" text-anchor="middle"><tspan class="pt">Um chunk por vez</tspan><tspan class="en" lang="en">One chunk at a time</tspan></text><text class="sub" x="447" y="218" text-anchor="middle"><tspan class="pt">só ele fica na memória</tspan><tspan class="en" lang="en">only it stays in memory</tspan></text>
+          <rect class="box" x="568" y="172" width="190" height="62" rx="9"/><text class="name name--s" x="663" y="199" text-anchor="middle"><tspan class="pt">Processa e confirma</tspan><tspan class="en" lang="en">Process and commit</tspan></text><text class="sub" x="663" y="218" text-anchor="middle"><tspan class="pt">uma transação por chunk</tspan><tspan class="en" lang="en">one transaction per chunk</tspan></text>
+          <rect class="box" x="794" y="172" width="140" height="62" rx="9"/><text class="name name--s" x="864" y="199" text-anchor="middle"><tspan class="pt">Resumo</tspan><tspan class="en" lang="en">Summary</tspan></text><text class="sub" x="864" y="218" text-anchor="middle"><tspan class="pt">contagens, vazão</tspan><tspan class="en" lang="en">counts, throughput</tspan></text>
+          <path class="line" d="M140 203H170" marker-end="url(#qb-seta)"/>
+          <path class="line" d="M326 203H356" marker-end="url(#qb-seta)"/>
+          <path class="line" d="M532 203H562" marker-end="url(#qb-seta)"/>
+          <path class="line" d="M758 203H788" marker-end="url(#qb-seta)"/>
+          <path class="line line--dash" d="M663 234V262H447V240" marker-end="url(#qb-seta)"/>
+          <text class="lbl lbl--bus" x="555" y="284" text-anchor="middle"><tspan class="pt">limpa o contexto e busca o próximo chunk</tspan><tspan class="en" lang="en">clears the context, fetches the next chunk</tspan></text>
+          </svg>
+      </div>
       <div class="feature__body">
         <div>
         <span class="feature__badge"><span class="pt">Destaque · biblioteca open source</span><span class="en" lang="en">Featured · open-source library</span></span>
@@ -501,6 +611,13 @@
           <li><span class="pt">Exportação de consultas para CSV e XLSX em streaming, com o Apache POI como dependência opcional.</span><span class="en" lang="en">Streaming export of queries to CSV and XLSX, with Apache POI as an optional dependency.</span></li>
           <li><span class="pt">Publicada no JitPack com Javadoc, índice Jandex para o CDI e CI no GitHub Actions em Java 17 e 21.</span><span class="en" lang="en">Published on JitPack with Javadoc, a Jandex index for CDI and CI on GitHub Actions for Java 17 and 21.</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">Virou biblioteca Maven publicável no JitPack, com Javadoc e CI.</span><span class="en" lang="en">Became a Maven library publishable on JitPack, with Javadoc and CI.</span></li>
+          <li><span class="pt">README em inglês com versão em português, e CHANGELOG.</span><span class="en" lang="en">README in English with a Portuguese version, and a CHANGELOG.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Java 17+</span><span class="chip">Quarkus</span><span class="chip">Hibernate ORM</span><span class="chip">JTA</span><span class="chip">Apache POI</span><span class="chip">JitPack</span></div>
@@ -524,6 +641,13 @@
           <li><span class="pt">Navegação por controle remoto e gamepad na TV, fases desenhadas no Tiled e progresso salvo no aparelho.</span><span class="en" lang="en">Remote-control and gamepad navigation on TV, levels designed in Tiled and progress saved on the device.</span></li>
           <li><span class="pt">Música original composta por um script Python, arte CC0 da Kenney e versão web publicada pelo GitHub Actions.</span><span class="en" lang="en">Original music composed by a Python script, CC0 art from Kenney and a web build published by GitHub Actions.</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">Poderes carregados para os heróis e bloco de terra que vira broca.</span><span class="en" lang="en">Charged powers for the heroes and an earth block that turns into a drill.</span></li>
+          <li><span class="pt">Músicas orquestrais por fase, sons próprios e tela de créditos ao vencer o chefe.</span><span class="en" lang="en">Orchestral music per level, custom sounds and a credits screen after beating the boss.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Flame</span><span class="chip">Kotlin</span><span class="chip">Android TV</span><span class="chip">GitHub Actions</span></div>
@@ -548,6 +672,14 @@
           <li><span class="pt">API Fastify com fila de processamento que chama o Elite Insights (.NET), SQLite em SQL direto e JSON de cada luta guardado para recalcular métricas sem reenviar os logs.</span><span class="en" lang="en">Fastify API with a processing queue that calls Elite Insights (.NET), plain SQL on SQLite, and each fight's JSON kept so metrics can be recalculated without re-uploading logs.</span></li>
           <li><span class="pt">Site em português e inglês, testes com Vitest, CI no GitHub Actions e deploy com Docker.</span><span class="en" lang="en">Site in Portuguese and English, Vitest tests, CI on GitHub Actions and Docker deployment.</span></li>
         </ul>
+        <div class="news">
+          <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
+          <ul>
+          <li><span class="pt">Boons por squad, grupo ou só do jogador, e filtros De/Até com hora.</span><span class="en" lang="en">Boons for the squad, the group or just the player, and From/To filters with time.</span></li>
+          <li><span class="pt">Envio de logs só pela API, com script e travas; alerta quando o site cai.</span><span class="en" lang="en">Log upload through the API only, with a script and limits; alert when the site goes down.</span></li>
+          <li><span class="pt">K/D passa a usar o total de inimigos mortos e o uptime é limitado a 100%.</span><span class="en" lang="en">K/D now uses the total of enemies killed and uptime is capped at 100%.</span></li>
+          </ul>
+        </div>
         </div>
         <div>
         <div class="chips"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">SQLite</span><span class="chip">React 19</span><span class="chip">Tailwind CSS</span><span class="chip">Docker</span></div>
@@ -562,7 +694,194 @@
   </div>
 </section>
 
-<section class="section section--alt" id="formacao">
+<section class="section section--alt" id="como-eu-trabalho">
+  <div class="wrap">
+    <p class="section__kicker">// <span class="pt">método</span><span class="en" lang="en">method</span></p>
+    <h2 class="section__title"><span class="pt">Como eu trabalho</span><span class="en" lang="en">How I work</span></h2>
+    <p class="section__lead"><span class="pt">Três estruturas que montei para trabalhar com IA sem perder o controle: cada uma separa quem decide, quem executa e o que é verificado automaticamente. Os diagramas mostram o fluxo em alto nível.</span><span class="en" lang="en">Three setups I built to work with AI without losing control: each one separates who decides, who executes and what is verified automatically. The diagrams show the flow at a high level.</span></p>
+    <article class="feature reveal">
+      <div class="how">
+        <div>
+          <p class="how__kind"><span class="pt">método de desenvolvimento</span><span class="en" lang="en">development method</span></p>
+          <h3>metodo-dev</h3>
+          <p><span class="pt">Estrutura em que o Claude Code trabalha como par que pilota, enquanto eu decido o quê e o porquê. Nada do método entra nos repositórios dos projetos: regras e contexto ficam à parte e são injetados em cada sessão.</span><span class="en" lang="en">A setup where Claude Code works as the pair that drives, while I decide what and why. Nothing of the method enters the project repositories: rules and context live apart and are injected into every session.</span></p>
+          <ul>
+          <li><span class="pt">Tarefa com regra de negócio: explorar, planejar, escrever o teste que falha e implementar só o mínimo.</span><span class="en" lang="en">Business-rule tasks: explore, plan, write the failing test and implement only the minimum.</span></li>
+          <li><span class="pt">Um hook roda a verificação do projeto antes de cada commit e bloqueia se ela falhar.</span><span class="en" lang="en">A hook runs the project verification before every commit and blocks it on failure.</span></li>
+          <li><span class="pt">Um agente revisor de contexto limpo lê a diff; branch nova por tarefa e PR que eu confiro e mesclo.</span><span class="en" lang="en">A clean-context reviewer agent reads the diff; one new branch per task and a PR that I review and merge.</span></li>
+          </ul>
+        </div>
+        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do metodo-dev">
+          <svg class="arch arch--wide" viewBox="0 0 720 572" role="img" aria-labelledby="dm-t">
+          <title id="dm-t">Fluxo do metodo-dev: Claude explora e planeja, Jean aprova, o hook roda a verificação, um revisor de contexto limpo confere, Jean faz o merge</title>
+          <defs><marker id="dm-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+          <rect class="lane" x="6" y="4" width="232" height="564" rx="10"/>
+          <text class="lbl" x="122" y="28" text-anchor="middle"><tspan class="pt">Eu · decido</tspan><tspan class="en" lang="en">Me · I decide</tspan></text>
+          <rect class="lane" x="242" y="4" width="232" height="564" rx="10"/>
+          <text class="lbl" x="358" y="28" text-anchor="middle"><tspan class="pt">Claude · par que pilota</tspan><tspan class="en" lang="en">Claude · pilots as pair</tspan></text>
+          <rect class="lane" x="478" y="4" width="232" height="564" rx="10"/>
+          <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Automático</tspan><tspan class="en" lang="en">Automatic</tspan></text>
+          <rect class="box" x="248" y="46" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="65" text-anchor="middle"><tspan class="pt">Explorar o código</tspan><tspan class="en" lang="en">Explore the code</tspan></text>
+          <text class="sub sub--s" x="358" y="81" text-anchor="middle"><tspan class="pt">explica como funciona, sem alterar</tspan><tspan class="en" lang="en">explains how it works, no edits</tspan></text>
+          <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Planejar o mínimo</tspan><tspan class="en" lang="en">Plan the minimum</tspan></text>
+          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">a versão mais simples que resolve</tspan><tspan class="en" lang="en">the simplest version that works</tspan></text>
+          <rect class="box box--human" x="12" y="162" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="122" y="181" text-anchor="middle"><tspan class="pt">✋ Aprova o plano</tspan><tspan class="en" lang="en">✋ Approves the plan</tspan></text>
+          <text class="sub sub--s" x="122" y="197" text-anchor="middle"><tspan class="pt">decide o quê e o porquê</tspan><tspan class="en" lang="en">decides what and why</tspan></text>
+          <rect class="box" x="248" y="220" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="239" text-anchor="middle"><tspan class="pt">Teste falha, implementa</tspan><tspan class="en" lang="en">Failing test, then code</tspan></text>
+          <text class="sub sub--s" x="358" y="255" text-anchor="middle"><tspan class="pt">só o mínimo para passar</tspan><tspan class="en" lang="en">only the minimum to pass</tspan></text>
+          <rect class="box box--auto" x="484" y="278" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="594" y="297" text-anchor="middle"><tspan class="pt">Verificação do projeto</tspan><tspan class="en" lang="en">Project verification</tspan></text>
+          <text class="sub sub--s" x="594" y="313" text-anchor="middle"><tspan class="pt">o hook barra o commit se falhar</tspan><tspan class="en" lang="en">the hook blocks a failing commit</tspan></text>
+          <rect class="box box--auto" x="484" y="336" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="594" y="355" text-anchor="middle"><tspan class="pt">Revisor, contexto limpo</tspan><tspan class="en" lang="en">Reviewer, clean context</tspan></text>
+          <text class="sub sub--s" x="594" y="371" text-anchor="middle"><tspan class="pt">confere a diff sem o viés do autor</tspan><tspan class="en" lang="en">reads the diff without author bias</tspan></text>
+          <rect class="box" x="248" y="394" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="413" text-anchor="middle"><tspan class="pt">Commit e PR</tspan><tspan class="en" lang="en">Commit and PR</tspan></text>
+          <text class="sub sub--s" x="358" y="429" text-anchor="middle"><tspan class="pt">branch nova, nunca na principal</tspan><tspan class="en" lang="en">new branch, never on main</tspan></text>
+          <rect class="box box--human" x="12" y="452" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="122" y="471" text-anchor="middle"><tspan class="pt">✋ Confere a diff e mescla</tspan><tspan class="en" lang="en">✋ Reviews the diff, merges</tspan></text>
+          <text class="sub sub--s" x="122" y="487" text-anchor="middle"><tspan class="pt">push só com o meu “sim”</tspan><tspan class="en" lang="en">push only with my “yes”</tspan></text>
+          <rect class="box" x="248" y="510" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="529" text-anchor="middle"><tspan class="pt">Registra o aprendizado</tspan><tspan class="en" lang="en">Records the lesson</tspan></text>
+          <text class="sub sub--s" x="358" y="545" text-anchor="middle"><tspan class="pt">armadilhas, decisões, próximo passo</tspan><tspan class="en" lang="en">pitfalls, decisions, next step</tspan></text>
+          <path class="line" d="M358 90V104" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 148V155H122V162" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M122 206V213H358V220" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 264V271H594V278" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M594 322V336" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M594 380V387H358V394" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 438V445H122V452" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M122 496V503H358V510" marker-end="url(#dm-seta)"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+    <article class="feature reveal">
+      <div class="how">
+        <div>
+          <p class="how__kind"><span class="pt">operação com agentes</span><span class="en" lang="en">agent operation</span></p>
+          <h3>ai-first-ops</h3>
+          <p><span class="pt">Fábrica de ferramentas em que a IA é o núcleo: um agente geral orquestra agentes especializados (produto, pesquisa, design, código, revisão de código, conteúdo e aprendizado) e as pessoas aprovam tudo o que sai para fora.</span><span class="en" lang="en">A tool factory where AI is the core: a general agent orchestrates specialist agents (product, research, design, builder, code review, content and learning) and people approve everything that leaves the system.</span></p>
+          <ul>
+          <li><span class="pt">Portões antes de construir: só se automatiza um processo documentado, com meta e retorno claros.</span><span class="en" lang="en">Gates before building: only a documented process, with a clear goal and payoff, gets automated.</span></li>
+          <li><span class="pt">Toda entrega de código passa pelo agente de revisão antes de chegar às pessoas.</span><span class="en" lang="en">Every code delivery goes through the review agent before it reaches people.</span></li>
+          <li><span class="pt">Aprovação humana para enviar, apagar, gastar ou publicar; o aprovado e o rejeitado viram memória em Markdown.</span><span class="en" lang="en">Human approval to send, delete, spend or deploy; what was approved or rejected becomes Markdown memory.</span></li>
+          </ul>
+        </div>
+        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do ai-first-ops">
+          <svg class="arch arch--wide" viewBox="0 0 720 572" role="img" aria-labelledby="da-t">
+          <title id="da-t">Fluxo do ai-first-ops: o agente geral aplica os portões e delega aos agentes da área, o código passa pela revisão e uma pessoa aprova antes de qualquer coisa sair</title>
+          <defs><marker id="da-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+          <rect class="lane" x="6" y="4" width="232" height="564" rx="10"/>
+          <text class="lbl" x="122" y="28" text-anchor="middle"><tspan class="pt">Pessoas</tspan><tspan class="en" lang="en">People</tspan></text>
+          <rect class="lane" x="242" y="4" width="232" height="564" rx="10"/>
+          <text class="lbl" x="358" y="28" text-anchor="middle"><tspan class="pt">Agente geral</tspan><tspan class="en" lang="en">General agent</tspan></text>
+          <rect class="lane" x="478" y="4" width="232" height="564" rx="10"/>
+          <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Agentes da área</tspan><tspan class="en" lang="en">Specialist agents</tspan></text>
+          <rect class="box box--human" x="12" y="46" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="122" y="65" text-anchor="middle"><tspan class="pt">Pede uma tarefa</tspan><tspan class="en" lang="en">Asks for a task</tspan></text>
+          <text class="sub sub--s" x="122" y="81" text-anchor="middle"><tspan class="pt">o que fazer hoje, em qual projeto</tspan><tspan class="en" lang="en">what to do today, in which project</tspan></text>
+          <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Quebra e delega</tspan><tspan class="en" lang="en">Splits and delegates</tspan></text>
+          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">orquestra, não faz o trabalho deles</tspan><tspan class="en" lang="en">orchestrates, never does their job</tspan></text>
+          <rect class="box box--auto" x="248" y="162" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="181" text-anchor="middle"><tspan class="pt">Portões do processo</tspan><tspan class="en" lang="en">Process gates</tspan></text>
+          <text class="sub sub--s" x="358" y="197" text-anchor="middle"><tspan class="pt">documentado? meta? vale o esforço?</tspan><tspan class="en" lang="en">documented? goal? worth the effort?</tspan></text>
+          <rect class="box" x="484" y="220" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="594" y="239" text-anchor="middle"><tspan class="pt">Agente da área</tspan><tspan class="en" lang="en">Domain agent</tspan></text>
+          <text class="sub sub--s" x="594" y="255" text-anchor="middle"><tspan class="pt">produto, pesquisa, design, código</tspan><tspan class="en" lang="en">product, research, design, builder</tspan></text>
+          <rect class="box box--auto" x="484" y="278" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="594" y="297" text-anchor="middle"><tspan class="pt">Revisão de código</tspan><tspan class="en" lang="en">Code review</tspan></text>
+          <text class="sub sub--s" x="594" y="313" text-anchor="middle"><tspan class="pt">toda entrega, antes das pessoas</tspan><tspan class="en" lang="en">every delivery, before people see it</tspan></text>
+          <rect class="box" x="248" y="336" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="355" text-anchor="middle"><tspan class="pt">Junta e leva à aprovação</tspan><tspan class="en" lang="en">Merges and asks approval</tspan></text>
+          <text class="sub sub--s" x="358" y="371" text-anchor="middle"><tspan class="pt">resolve alertas antes de seguir</tspan><tspan class="en" lang="en">fixes warnings before moving on</tspan></text>
+          <rect class="box box--human" x="12" y="394" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="122" y="413" text-anchor="middle"><tspan class="pt">✋ Aprova</tspan><tspan class="en" lang="en">✋ Approves</tspan></text>
+          <text class="sub sub--s" x="122" y="429" text-anchor="middle"><tspan class="pt">enviar, apagar, gastar, publicar</tspan><tspan class="en" lang="en">send, delete, spend, deploy</tspan></text>
+          <rect class="box" x="484" y="452" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="594" y="471" text-anchor="middle"><tspan class="pt">Aprendizado</tspan><tspan class="en" lang="en">Learning</tspan></text>
+          <text class="sub sub--s" x="594" y="487" text-anchor="middle"><tspan class="pt">registra o aprovado e o rejeitado</tspan><tspan class="en" lang="en">logs what was approved or rejected</tspan></text>
+          <rect class="box" x="248" y="510" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="529" text-anchor="middle"><tspan class="pt">Memória em Markdown</tspan><tspan class="en" lang="en">Markdown memory</tspan></text>
+          <text class="sub sub--s" x="358" y="545" text-anchor="middle"><tspan class="pt">contexto da próxima tarefa</tspan><tspan class="en" lang="en">context for the next task</tspan></text>
+          <path class="line" d="M122 90V97H358V104" marker-end="url(#da-seta)"/>
+          <path class="line" d="M358 148V162" marker-end="url(#da-seta)"/>
+          <path class="line" d="M358 206V213H594V220" marker-end="url(#da-seta)"/>
+          <path class="line" d="M594 264V278" marker-end="url(#da-seta)"/>
+          <path class="line" d="M594 322V329H358V336" marker-end="url(#da-seta)"/>
+          <path class="line" d="M358 380V387H122V394" marker-end="url(#da-seta)"/>
+          <path class="line" d="M122 438V445H594V452" marker-end="url(#da-seta)"/>
+          <path class="line" d="M594 496V503H358V510" marker-end="url(#da-seta)"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+    <article class="feature reveal">
+      <div class="how">
+        <div>
+          <p class="how__kind"><span class="pt">marketing com agentes</span><span class="en" lang="en">agent-run marketing</span></p>
+          <h3>social-ops</h3>
+          <p><span class="pt">Time de agentes que pesquisa, escreve, contesta e revisa posts para redes sociais, com aprovação humana registrada antes de qualquer publicação. Está na Fase 0, em modo manual, com o publicador ainda em simulação.</span><span class="en" lang="en">A team of agents that researches, writes, challenges and reviews social media posts, with recorded human approval before anything is published. It is in Phase 0, in manual mode, with the publisher still simulated.</span></p>
+          <ul>
+          <li><span class="pt">Nada é produzido sem briefing validado; afirmação sobre produto só entra se eu tiver confirmado.</span><span class="en" lang="en">Nothing is produced without a validated brief; product claims only go in if I have confirmed them.</span></li>
+          <li><span class="pt">Papel sem decisão (publicar, medir custo) é código comum, não LLM.</span><span class="en" lang="en">A role with no decision (publishing, tracking cost) is plain code, not an LLM.</span></li>
+          <li><span class="pt">O publicador só lê posts aprovados, para se existir o arquivo PAUSAR e nunca repete uma publicação.</span><span class="en" lang="en">The publisher reads approved posts only, halts if a PAUSE file exists and never repeats a post.</span></li>
+          </ul>
+        </div>
+        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do social-ops">
+          <svg class="arch arch--wide" viewBox="0 0 720 514" role="img" aria-labelledby="ds-t">
+          <title id="ds-t">Fluxo do social-ops: pesquisador, redator, questionador e revisor produzem o post, uma pessoa aprova, e só então o publicador em código publica</title>
+          <defs><marker id="ds-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+          <rect class="lane" x="6" y="4" width="232" height="506" rx="10"/>
+          <text class="lbl" x="122" y="28" text-anchor="middle"><tspan class="pt">Pessoas</tspan><tspan class="en" lang="en">People</tspan></text>
+          <rect class="lane" x="242" y="4" width="232" height="506" rx="10"/>
+          <text class="lbl" x="358" y="28" text-anchor="middle"><tspan class="pt">Agentes de IA</tspan><tspan class="en" lang="en">AI agents</tspan></text>
+          <rect class="lane" x="478" y="4" width="232" height="506" rx="10"/>
+          <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Código, sem IA</tspan><tspan class="en" lang="en">Plain code, no AI</tspan></text>
+          <rect class="box box--human" x="12" y="46" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="122" y="65" text-anchor="middle"><tspan class="pt">✋ Valida o briefing</tspan><tspan class="en" lang="en">✋ Validates the brief</tspan></text>
+          <text class="sub sub--s" x="122" y="81" text-anchor="middle"><tspan class="pt">sem briefing, nada é produzido</tspan><tspan class="en" lang="en">no brief, nothing is produced</tspan></text>
+          <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Pesquisador</tspan><tspan class="en" lang="en">Researcher</tspan></text>
+          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">ideias e fontes com data e status</tspan><tspan class="en" lang="en">ideas and sources, dated and graded</tspan></text>
+          <rect class="box" x="248" y="162" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="181" text-anchor="middle"><tspan class="pt">Redator</tspan><tspan class="en" lang="en">Writer</tspan></text>
+          <text class="sub sub--s" x="358" y="197" text-anchor="middle"><tspan class="pt">escreve o post e põe na fila</tspan><tspan class="en" lang="en">writes the post into the queue</tspan></text>
+          <rect class="box" x="248" y="220" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="239" text-anchor="middle"><tspan class="pt">Questionador</tspan><tspan class="en" lang="en">Challenger</tspan></text>
+          <text class="sub sub--s" x="358" y="255" text-anchor="middle"><tspan class="pt">contesta as decisões do redator</tspan><tspan class="en" lang="en">challenges the writer’s choices</tspan></text>
+          <rect class="box" x="248" y="278" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="297" text-anchor="middle"><tspan class="pt">Revisor</tspan><tspan class="en" lang="en">Reviewer</tspan></text>
+          <text class="sub sub--s" x="358" y="313" text-anchor="middle"><tspan class="pt">confere fatos, tom e repetição</tspan><tspan class="en" lang="en">checks facts, tone and repetition</tspan></text>
+          <rect class="box box--human" x="12" y="336" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="122" y="355" text-anchor="middle"><tspan class="pt">✋ Aprova o post</tspan><tspan class="en" lang="en">✋ Approves the post</tspan></text>
+          <text class="sub sub--s" x="122" y="371" text-anchor="middle"><tspan class="pt">move para aprovados, com nome e hora</tspan><tspan class="en" lang="en">moves to approved, with who and when</tspan></text>
+          <rect class="box box--auto" x="484" y="394" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="594" y="413" text-anchor="middle"><tspan class="pt">Publicador</tspan><tspan class="en" lang="en">Publisher</tspan></text>
+          <text class="sub sub--s" x="594" y="429" text-anchor="middle"><tspan class="pt">só lê aprovados; PAUSAR para tudo</tspan><tspan class="en" lang="en">reads approved only; PAUSE halts all</tspan></text>
+          <rect class="box" x="248" y="452" width="220" height="44" rx="9"/>
+          <text class="name name--s" x="358" y="471" text-anchor="middle"><tspan class="pt">Aprendizado</tspan><tspan class="en" lang="en">Learning</tspan></text>
+          <text class="sub sub--s" x="358" y="487" text-anchor="middle"><tspan class="pt">o resultado volta para a memória</tspan><tspan class="en" lang="en">the result goes back to memory</tspan></text>
+          <path class="line" d="M122 90V97H358V104" marker-end="url(#ds-seta)"/>
+          <path class="line" d="M358 148V162" marker-end="url(#ds-seta)"/>
+          <path class="line" d="M358 206V220" marker-end="url(#ds-seta)"/>
+          <path class="line" d="M358 264V278" marker-end="url(#ds-seta)"/>
+          <path class="line" d="M358 322V329H122V336" marker-end="url(#ds-seta)"/>
+          <path class="line" d="M122 380V387H594V394" marker-end="url(#ds-seta)"/>
+          <path class="line" d="M594 438V445H358V452" marker-end="url(#ds-seta)"/>
+          </svg>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="formacao">
   <div class="wrap">
     <p class="section__kicker">// <span class="pt">formação</span><span class="en" lang="en">education</span></p>
     <h2 class="section__title"><span class="pt">Formação</span><span class="en" lang="en">Education</span></h2>
