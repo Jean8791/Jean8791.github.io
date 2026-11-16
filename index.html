@@ -536,6 +536,29 @@
         </div>
       </div>
     </article>
+    <article class="feature reveal">
+      <a class="feature__shot" href="https://logsdocla.duckdns.org" target="_blank" rel="noopener"><img src="assets/gw2-visao-geral.jpg" alt="Visão geral do Logs do Clã com filtros de período, dia, guilda e tamanho do squad e os totais de lutas, tempo de luta, abates, mortes e jogadores" width="1258" height="420" loading="lazy" /></a>
+      <div class="feature__body">
+        <div>
+        <span class="feature__badge"><span class="pt">Destaque · em produção</span><span class="en" lang="en">Featured · in production</span></span>
+        <h3>Logs do Clã · <span class="pt">histórico de WvW do Guild Wars 2</span><span class="en" lang="en">Guild Wars 2 WvW history</span></h3>
+        <p><span class="pt">Site que o meu clã usa para guardar o histórico das lutas de WvW. Os logs do ArcDPS são processados pelo Elite Insights e viram ranking, perfil de cada jogador e comparação, com filtros que os relatórios por sessão não têm.</span><span class="en" lang="en">Site my guild uses to keep its WvW fight history. ArcDPS logs are processed by Elite Insights and turned into rankings, player profiles and comparisons, with filters that per-session reports lack.</span></p>
+        <ul>
+          <li><span class="pt">Ranking com filtros por período, guilda, função, classe e mapa; os filtros ficam no link, então dá para mandar no Discord.</span><span class="en" lang="en">Ranking with filters by period, guild, role, class and map; filters live in the URL, so a view can be shared on Discord.</span></li>
+          <li><span class="pt">API Fastify com fila de processamento que chama o Elite Insights (.NET), SQLite em SQL direto e JSON de cada luta guardado para recalcular métricas sem reenviar os logs.</span><span class="en" lang="en">Fastify API with a processing queue that calls Elite Insights (.NET), plain SQL on SQLite, and each fight's JSON kept so metrics can be recalculated without re-uploading logs.</span></li>
+          <li><span class="pt">Site em português e inglês, testes com Vitest, CI no GitHub Actions e deploy com Docker.</span><span class="en" lang="en">Site in Portuguese and English, Vitest tests, CI on GitHub Actions and Docker deployment.</span></li>
+        </ul>
+        </div>
+        <div>
+        <div class="chips"><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Fastify</span><span class="chip">SQLite</span><span class="chip">React 19</span><span class="chip">Tailwind CSS</span><span class="chip">Docker</span></div>
+        <div class="feature__cta">
+          <a class="btn btn--primary" href="https://logsdocla.duckdns.org" target="_blank" rel="noopener">▶ <span class="pt">Abrir o site</span><span class="en" lang="en">Open the site</span></a>
+          <a class="btn btn--ghost" href="https://github.com/Jean8791/gw2-clan-logs" target="_blank" rel="noopener"><span class="pt">Código</span><span class="en" lang="en">Source</span></a>
+        </div>
+        <p class="feature__note"><span class="pt">Os dados são das lutas reais do clã. Os logs entram só pela API, com chave, então o site é de consulta.</span><span class="en" lang="en">The data comes from the guild's real fights. Logs enter only through the API, with a key, so the site is read-only.</span></p>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
