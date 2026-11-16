@@ -401,7 +401,7 @@
         <ul>
           <li><span class="pt">Nenhum horário sobreposto, garantido no próprio PostgreSQL com constraint <code>EXCLUDE</code> sobre <code>tstzrange</code>: requisições simultâneas no mesmo horário viram <code>409</code>.</span><span class="en" lang="en">No overlapping bookings, enforced by PostgreSQL itself with an <code>EXCLUDE</code> constraint on <code>tstzrange</code>: concurrent requests for the same slot get a <code>409</code>.</span></li>
           <li><span class="pt">Isolamento por prestador em toda consulta, perfis admin e operacional, JWT e limite de tentativas no login e no cadastro.</span><span class="en" lang="en">Per-tenant isolation on every query, admin and staff roles, JWT and rate limiting on login and sign-up.</span></li>
-          <li><span class="pt">Horários livres calculados pela API, aviso ao cliente por link do WhatsApp e regras de agenda cobertas por testes unitários.</span><span class="en" lang="en">Free slots computed by the API, customer notice through a WhatsApp link and scheduling rules covered by unit tests.</span></li>
+          <li><span class="pt">Horários livres calculados pela API, aviso ao cliente por link do WhatsApp e regras de agenda cobertas por testes unitários e a concorrência do agendamento por teste de integração.</span><span class="en" lang="en">Free slots computed by the API, customer notice through a WhatsApp link, scheduling rules covered by unit tests and booking concurrency covered by an integration test.</span></li>
         </ul>
         <div class="news">
           <b><span class="pt">o que mudou · nov 2026</span><span class="en" lang="en">what changed · Nov 2026</span></b>
@@ -409,6 +409,7 @@
           <li><span class="pt">Agenda interna com profissionais, serviços e agendamentos.</span><span class="en" lang="en">Internal scheduling with professionals, services and bookings.</span></li>
           <li><span class="pt">Isolamento entre prestadores corrigido, cadastro por convite e autenticação endurecida.</span><span class="en" lang="en">Tenant isolation fixed, invitation-based sign-up and hardened authentication.</span></li>
           <li><span class="pt">Layout redesenhado, com os totais no topo do dashboard.</span><span class="en" lang="en">Redesigned layout, with the totals at the top of the dashboard.</span></li>
+          <li><span class="pt">Teste de concorrência contra o PostgreSQL real, sem mock: 8 requisições simultâneas no mesmo horário resultam em 1 agendamento criado e as demais em <code>409</code>; cancelar libera o horário e horários em sequência não conflitam.</span><span class="en" lang="en">Concurrency test against a real PostgreSQL, no mocks: 8 simultaneous requests for the same slot create 1 booking and the rest get <code>409</code>; cancelling frees the slot and back-to-back slots do not conflict.</span></li>
           </ul>
         </div>
         </div>
