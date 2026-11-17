@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t d" font-family="Inter, 'DejaVu Sans', Arial, sans-serif">
+<title id="t">Memória retida: biblioteca constante, leitura ingênua estoura</title>
+<desc id="d">Com 256m de heap. Leitura, 100 mil linhas: ingênuo 108 MB, biblioteca 12 MB; Leitura, 1 milhão de linhas: ingênuo estourou a memória, biblioteca 12 MB; Exportação XLSX, 100 mil linhas: ingênuo estourou a memória, biblioteca 20 MB; Exportação XLSX, 1 milhão de linhas: ingênuo estourou a memória, biblioteca 20 MB.</desc>
+<defs><pattern id="oom" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+<rect width="7" height="7" fill="#d95926" fill-opacity=".22"/><rect width="3" height="7" fill="#d95926"/></pattern></defs>
+<rect width="1200" height="630" fill="#151a21"/>
+<text x="60" y="62" font-size="30" font-weight="600" fill="#e6e9ee">Memória retida com 256 MB de heap</text>
+<text x="60" y="94" font-size="17" fill="#9aa4b2">quarkus-batch-processor · PostgreSQL real · pico após o GC · mediana de 4 execuções</text>
+<rect x="60" y="119" width="14" height="14" rx="3" fill="#d95926"/><text x="82" y="131" font-size="16" fill="#e6e9ee">Ingênuo (getResultList)</text>
+<rect x="301.6" y="119" width="14" height="14" rx="3" fill="#3987e5"/><text x="323.6" y="131" font-size="16" fill="#e6e9ee">Biblioteca (cursor + chunks)</text>
+<rect x="589.2" y="119" width="14" height="14" rx="3" fill="url(#oom)"/><text x="611.2" y="131" font-size="16" fill="#e6e9ee">estourou a memória (OutOfMemoryError)</text>
+<text x="100" y="163" font-size="19" font-weight="600" fill="#e6e9ee">Leitura</text>
+<text x="90" y="201" font-size="14" text-anchor="end" fill="#9aa4b2">MB</text>
+<line x1="100" x2="535" y1="505.0" y2="505.0" stroke="#232a34" stroke-width="1"/>
+<text x="90" y="510.0" font-size="14" text-anchor="end" fill="#9aa4b2">0</text>
+<line x1="100" x2="535" y1="435.0" y2="435.0" stroke="#232a34" stroke-width="1"/>
+<text x="90" y="440.0" font-size="14" text-anchor="end" fill="#9aa4b2">64</text>
+<line x1="100" x2="535" y1="365.0" y2="365.0" stroke="#232a34" stroke-width="1"/>
+<text x="90" y="370.0" font-size="14" text-anchor="end" fill="#9aa4b2">128</text>
+<line x1="100" x2="535" y1="295.0" y2="295.0" stroke="#232a34" stroke-width="1"/>
+<text x="90" y="300.0" font-size="14" text-anchor="end" fill="#9aa4b2">192</text>
+<line x1="100" x2="535" y1="225.0" y2="225.0" stroke="#232a34" stroke-width="1"/>
+<text x="90" y="230.0" font-size="14" text-anchor="end" fill="#9aa4b2">256</text>
+<path d="M183.75,505 V390.875 Q183.75,386.875 187.75,386.875 H203.75 Q207.75,386.875 207.75,390.875 V505 Z" fill="#d95926"/>
+<text x="195.75" y="376.875" font-size="16" font-weight="600" text-anchor="middle" fill="#e6e9ee">108 MB</text>
+<path d="M209.75,505 V495.875 Q209.75,491.875 213.75,491.875 H229.75 Q233.75,491.875 233.75,495.875 V505 Z" fill="#3987e5"/>
+<text x="209.75" y="481.875" font-size="16" font-weight="600" text-anchor="start" fill="#e6e9ee">12 MB</text>
+<text x="208.75" y="535" font-size="16" text-anchor="middle" fill="#9aa4b2">100 mil linhas</text>
+<path d="M401.25,505 V229.0 Q401.25,225.0 405.25,225.0 H421.25 Q425.25,225.0 425.25,229.0 V505 Z" fill="url(#oom)"/>
+<text x="413.25" y="215.0" font-size="16" font-weight="600" text-anchor="middle" fill="#e6e9ee">OOM</text>
+<path d="M427.25,505 V495.875 Q427.25,491.875 431.25,491.875 H447.25 Q451.25,491.875 451.25,495.875 V505 Z" fill="#3987e5"/>
+<text x="427.25" y="481.875" font-size="16" font-weight="600" text-anchor="start" fill="#e6e9ee">12 MB</text>
+<text x="426.25" y="535" font-size="16" text-anchor="middle" fill="#9aa4b2">1 milhão de linhas</text>
+<text x="665" y="163" font-size="19" font-weight="600" fill="#e6e9ee">Exportação XLSX</text>
+<text x="655" y="201" font-size="14" text-anchor="end" fill="#9aa4b2">MB</text>
+<line x1="665" x2="1100" y1="505.0" y2="505.0" stroke="#232a34" stroke-width="1"/>
+<text x="655" y="510.0" font-size="14" text-anchor="end" fill="#9aa4b2">0</text>
+<line x1="665" x2="1100" y1="435.0" y2="435.0" stroke="#232a34" stroke-width="1"/>
+<text x="655" y="440.0" font-size="14" text-anchor="end" fill="#9aa4b2">64</text>
+<line x1="665" x2="1100" y1="365.0" y2="365.0" stroke="#232a34" stroke-width="1"/>
+<text x="655" y="370.0" font-size="14" text-anchor="end" fill="#9aa4b2">128</text>
+<line x1="665" x2="1100" y1="295.0" y2="295.0" stroke="#232a34" stroke-width="1"/>
+<text x="655" y="300.0" font-size="14" text-anchor="end" fill="#9aa4b2">192</text>
+<line x1="665" x2="1100" y1="225.0" y2="225.0" stroke="#232a34" stroke-width="1"/>
+<text x="655" y="230.0" font-size="14" text-anchor="end" fill="#9aa4b2">256</text>
+<path d="M748.75,505 V229.0 Q748.75,225.0 752.75,225.0 H768.75 Q772.75,225.0 772.75,229.0 V505 Z" fill="url(#oom)"/>
+<text x="760.75" y="215.0" font-size="16" font-weight="600" text-anchor="middle" fill="#e6e9ee">OOM</text>
+<path d="M774.75,505 V487.125 Q774.75,483.125 778.75,483.125 H794.75 Q798.75,483.125 798.75,487.125 V505 Z" fill="#3987e5"/>
+<text x="774.75" y="473.125" font-size="16" font-weight="600" text-anchor="start" fill="#e6e9ee">20 MB</text>
+<text x="773.75" y="535" font-size="16" text-anchor="middle" fill="#9aa4b2">100 mil linhas</text>
+<path d="M966.25,505 V229.0 Q966.25,225.0 970.25,225.0 H986.25 Q990.25,225.0 990.25,229.0 V505 Z" fill="url(#oom)"/>
+<text x="978.25" y="215.0" font-size="16" font-weight="600" text-anchor="middle" fill="#e6e9ee">OOM</text>
+<path d="M992.25,505 V487.125 Q992.25,483.125 996.25,483.125 H1012.25 Q1016.25,483.125 1016.25,487.125 V505 Z" fill="#3987e5"/>
+<text x="992.25" y="473.125" font-size="16" font-weight="600" text-anchor="start" fill="#e6e9ee">20 MB</text>
+<text x="991.25" y="535" font-size="16" text-anchor="middle" fill="#9aa4b2">1 milhão de linhas</text>
+<text x="60" y="602" font-size="14" fill="#9aa4b2">O topo do eixo (256 MB) é o limite do heap (-Xmx256m). Dados: benchmark/results/summary.csv, commit 8f0d831.</text>
+</svg>
