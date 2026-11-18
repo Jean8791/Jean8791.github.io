@@ -717,7 +717,7 @@
           <h3>metodo-dev</h3>
           <p><span class="pt">Estrutura em que o Claude Code trabalha como par que pilota, enquanto eu decido o quê e o porquê. Nada do método entra nos repositórios dos projetos: regras e contexto ficam à parte e são injetados em cada sessão.</span><span class="en" lang="en">A setup where Claude Code works as the pair that drives, while I decide what and why. Nothing of the method enters the project repositories: rules and context live apart and are injected into every session.</span></p>
           <ul>
-          <li><span class="pt">Tarefa com regra de negócio: explorar, planejar, escrever o teste que falha e implementar só o mínimo.</span><span class="en" lang="en">Business-rule tasks: explore, plan, write the failing test and implement only the minimum.</span></li>
+          <li><span class="pt">Tarefa com regra de negócio: explorar, planejar, escrever o teste que falha e implementar com código simples e fácil de ler.</span><span class="en" lang="en">Business-rule tasks: explore, plan, write the failing test and implement with simple, easy-to-read code.</span></li>
           <li><span class="pt">Um hook roda a verificação do projeto antes de cada commit e bloqueia se ela falhar; casos de teste conferem que ele barra e aprova o que deve.</span><span class="en" lang="en">A hook runs the project verification before every commit and blocks it on failure; test cases check that it blocks and passes what it should.</span></li>
           <li><span class="pt">Um agente revisor de contexto limpo lê a diff; branch nova por tarefa e, antes do push, a diff é lida atrás de segredo e dado pessoal. O PR eu confiro e mesclo.</span><span class="en" lang="en">A clean-context reviewer agent reads the diff; one new branch per task and, before the push, the diff is read for secrets and personal data. I review and merge the PR.</span></li>
           <li><span class="pt">O que não precisa de decisão vira script, sem gastar token (limpar branches, retomar a sessão, medir o custo do contexto).</span><span class="en" lang="en">Whatever needs no decision becomes a script that spends no tokens (cleaning branches, resuming a session, measuring context cost).</span></li>
@@ -738,8 +738,8 @@
           <text class="sub sub--s" x="358" y="81" text-anchor="middle"><tspan class="pt">explica como funciona, sem alterar</tspan><tspan class="en" lang="en">explains how it works, no edits</tspan></text>
           <circle class="num" cx="251" cy="49" r="9"/><text class="numt" x="251" y="52.5" text-anchor="middle">1</text>
           <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Planejar o mínimo</tspan><tspan class="en" lang="en">Plan the minimum</tspan></text>
-          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">a versão mais simples que resolve</tspan><tspan class="en" lang="en">the simplest version that works</tspan></text>
+          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Planejar o simples</tspan><tspan class="en" lang="en">Plan it simple</tspan></text>
+          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">simples, fácil de ler e entender</tspan><tspan class="en" lang="en">simple, easy-to-read code</tspan></text>
           <circle class="num" cx="251" cy="107" r="9"/><text class="numt" x="251" y="110.5" text-anchor="middle">2</text>
           <rect class="box box--human" x="12" y="162" width="220" height="44" rx="9"/>
           <text class="name name--s" x="122" y="181" text-anchor="middle"><tspan class="pt">✋ Aprova o plano</tspan><tspan class="en" lang="en">✋ Approves the plan</tspan></text>
@@ -747,7 +747,7 @@
           <circle class="num" cx="15" cy="165" r="9"/><text class="numt" x="15" y="168.5" text-anchor="middle">3</text>
           <rect class="box" x="248" y="220" width="220" height="44" rx="9"/>
           <text class="name name--s" x="358" y="239" text-anchor="middle"><tspan class="pt">Teste falha, implementa</tspan><tspan class="en" lang="en">Failing test, then code</tspan></text>
-          <text class="sub sub--s" x="358" y="255" text-anchor="middle"><tspan class="pt">só o mínimo para passar</tspan><tspan class="en" lang="en">only the minimum to pass</tspan></text>
+          <text class="sub sub--s" x="358" y="255" text-anchor="middle"><tspan class="pt">o teste prova o critério de aceite</tspan><tspan class="en" lang="en">the test proves the criterion</tspan></text>
           <circle class="num" cx="251" cy="223" r="9"/><text class="numt" x="251" y="226.5" text-anchor="middle">4</text>
           <rect class="box box--auto" x="484" y="278" width="220" height="44" rx="9"/>
           <text class="name name--s" x="594" y="297" text-anchor="middle"><tspan class="pt">Verificação do projeto</tspan><tspan class="en" lang="en">Project verification</tspan></text>
