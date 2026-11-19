@@ -714,7 +714,7 @@
       <div class="how">
         <div>
           <p class="how__kind"><span class="pt">método de desenvolvimento</span><span class="en" lang="en">development method</span></p>
-          <h3>metodo-dev</h3>
+          <h3>piloto-ia</h3>
           <p><span class="pt">Estrutura em que o Claude Code trabalha como par que pilota, enquanto eu decido o quê e o porquê. Nada do método entra nos repositórios dos projetos: regras e contexto ficam à parte e são injetados em cada sessão.</span><span class="en" lang="en">A setup where Claude Code works as the pair that drives, while I decide what and why. Nothing of the method enters the project repositories: rules and context live apart and are injected into every session.</span></p>
           <ul>
           <li><span class="pt">Tarefa com regra de negócio: explorar, planejar, escrever o teste que falha e implementar com código simples e fácil de ler.</span><span class="en" lang="en">Business-rule tasks: explore, plan, write the failing test and implement with simple, easy-to-read code.</span></li>
@@ -723,9 +723,9 @@
           <li><span class="pt">O que não precisa de decisão vira script, sem gastar token (limpar branches, retomar a sessão, medir o custo do contexto).</span><span class="en" lang="en">Whatever needs no decision becomes a script that spends no tokens (cleaning branches, resuming a session, measuring context cost).</span></li>
           </ul>
         </div>
-        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do metodo-dev">
+        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do piloto-ia">
           <svg class="arch arch--wide" viewBox="0 0 720 606" role="img" aria-labelledby="dm-t">
-          <title id="dm-t">Fluxo do metodo-dev: Claude explora e planeja, Jean aprova, o hook roda a verificação, um revisor de contexto limpo confere, a diff é lida atrás de segredo e Jean faz o merge</title>
+          <title id="dm-t">Fluxo do piloto-ia: Claude explora e planeja, Jean aprova, o hook roda a verificação, um revisor de contexto limpo confere, a diff é lida atrás de segredo e Jean faz o merge</title>
           <defs><marker id="dm-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
           <rect class="lane" x="6" y="4" width="232" height="564" rx="10"/>
           <text class="lbl" x="122" y="28" text-anchor="middle"><tspan class="pt">Eu · decido</tspan><tspan class="en" lang="en">Me · I decide</tspan></text>
@@ -735,7 +735,7 @@
           <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Automático</tspan><tspan class="en" lang="en">Automatic</tspan></text>
           <rect class="box" x="248" y="46" width="220" height="44" rx="9"/>
           <text class="name name--s" x="358" y="65" text-anchor="middle"><tspan class="pt">Explorar o código</tspan><tspan class="en" lang="en">Explore the code</tspan></text>
-          <text class="sub sub--s" x="358" y="81" text-anchor="middle"><tspan class="pt">explica como funciona, sem alterar</tspan><tspan class="en" lang="en">explains how it works, no edits</tspan></text>
+          <text class="sub sub--s" x="358" y="81" text-anchor="middle"><tspan class="pt">sem teste, caracteriza antes</tspan><tspan class="en" lang="en">no tests? characterize first</tspan></text>
           <circle class="num" cx="251" cy="49" r="9"/><text class="numt" x="251" y="52.5" text-anchor="middle">1</text>
           <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
           <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Planejar o simples</tspan><tspan class="en" lang="en">Plan it simple</tspan></text>
@@ -766,7 +766,7 @@
           <text class="sub sub--s" x="122" y="487" text-anchor="middle"><tspan class="pt">só entra na principal com meu merge</tspan><tspan class="en" lang="en">reaches main only with my merge</tspan></text>
           <circle class="num" cx="15" cy="455" r="9"/><text class="numt" x="15" y="458.5" text-anchor="middle">8</text>
           <rect class="box" x="248" y="510" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="529" text-anchor="middle"><tspan class="pt">Registra o aprendizado</tspan><tspan class="en" lang="en">Records the lesson</tspan></text>
+          <text class="name name--s" x="358" y="529" text-anchor="middle"><tspan class="pt">Fecha a sessão</tspan><tspan class="en" lang="en">Closes the session</tspan></text>
           <text class="sub sub--s" x="358" y="545" text-anchor="middle"><tspan class="pt">aprendizados e próximo passo</tspan><tspan class="en" lang="en">lessons and next step</tspan></text>
           <circle class="num" cx="251" cy="513" r="9"/><text class="numt" x="251" y="516.5" text-anchor="middle">9</text>
           <path class="line" d="M358 90V104" marker-end="url(#dm-seta)"/>
