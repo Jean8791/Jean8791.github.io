@@ -173,6 +173,8 @@
   .how { display: grid; grid-template-columns: 1fr; gap: 22px; }
   .how > div:first-child { max-width: 780px; }
   .how .feature__diagram { justify-self: center; width: 100%; max-width: 760px; }
+  .arch--xl { min-width: 900px; }
+  .how .feature__diagram--xl { max-width: 1080px; }
   .arch .sub--s { font-size: 10px; }
   .how__kind { font-family: "JetBrains Mono", monospace; font-size: .75rem; color: var(--accent-2); margin-bottom: 10px; }
   .news { margin-top: 18px; padding: 12px 14px; border-left: 2px solid var(--accent-2); background: rgba(52,211,153,.06); border-radius: 0 10px 10px 0; }
@@ -831,70 +833,145 @@
         <div>
           <p class="how__kind"><span class="pt">marketing com agentes</span><span class="en" lang="en">agent-run marketing</span></p>
           <h3>social-ops</h3>
-          <p><span class="pt">Time de agentes que pesquisa, escreve, contesta e revisa posts para redes sociais, com aprovação humana registrada antes de qualquer publicação. Está na Fase 0, em modo manual, com o publicador ainda em simulação.</span><span class="en" lang="en">A team of agents that researches, writes, challenges and reviews social media posts, with recorded human approval before anything is published. It is in Phase 0, in manual mode, with the publisher still simulated.</span></p>
+          <p><span class="pt">Time de agentes que pesquisa, escreve, contesta e revisa posts para redes sociais, com aprovação humana registrada antes de qualquer publicação. O publicador já publica de verdade no LinkedIn pela API oficial (primeira publicação em 18/11/2026). Eu aprovo com um comando (/aprovar ou /nao-aprovado) depois de ver a prévia em HTML, e a única confirmação digitada é a da publicação.</span><span class="en" lang="en">A team of agents that researches, writes, challenges and reviews social media posts, with recorded human approval before anything is published. The publisher now really publishes on LinkedIn through the official API (first post on 11/18/2026). I approve with a command (/aprovar or /nao-aprovado) after seeing the HTML preview, and the only typed confirmation is the one for publishing.</span></p>
           <ul>
           <li><span class="pt">Nada é produzido sem briefing validado; afirmação sobre produto só entra se eu tiver confirmado.</span><span class="en" lang="en">Nothing is produced without a validated brief; product claims only go in if I have confirmed them.</span></li>
-          <li><span class="pt">Papel sem decisão (publicar, medir custo) é código comum, não LLM.</span><span class="en" lang="en">A role with no decision (publishing, tracking cost) is plain code, not an LLM.</span></li>
-          <li><span class="pt">Cada post chega com as referências (afirmação, link e trecho da fonte) para eu conferir antes de aprovar.</span><span class="en" lang="en">Each post arrives with its references (claim, link and source excerpt) for me to check before approving.</span></li>
-          <li><span class="pt">O publicador só lê posts aprovados, para se existir o arquivo PAUSAR e nunca repete uma publicação.</span><span class="en" lang="en">The publisher reads approved posts only, halts if a PAUSE file exists and never repeats a post.</span></li>
+          <li><span class="pt">Papel sem decisão (aprovar, publicar) é código comum, não LLM.</span><span class="en" lang="en">A role with no decision (approving, publishing) is plain code, not an LLM.</span></li>
+          <li><span class="pt">Cada post chega com as referências (afirmação, link e trecho da fonte) e a aprovação fica registrada com nome, data e hash do conteúdo.</span><span class="en" lang="en">Each post arrives with its references (claim, link and source excerpt), and the approval is recorded with name, date and content hash.</span></li>
+          <li><span class="pt">O publicador só lê posts aprovados (com hash válido), para se existir o arquivo PAUSAR e nunca repete uma publicação.</span><span class="en" lang="en">The publisher reads approved posts only (with a valid hash), halts if a PAUSE file exists and never repeats a post.</span></li>
           </ul>
         </div>
-        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do social-ops">
-          <svg class="arch arch--wide" viewBox="0 0 720 548" role="img" aria-labelledby="ds-t">
-          <title id="ds-t">Fluxo do social-ops: pesquisador, redator, questionador e revisor produzem o post, uma pessoa confere as fontes e aprova, e só então o publicador em código publica</title>
-          <defs><marker id="ds-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
-          <rect class="lane" x="6" y="4" width="232" height="506" rx="10"/>
-          <text class="lbl" x="122" y="28" text-anchor="middle"><tspan class="pt">Pessoas</tspan><tspan class="en" lang="en">People</tspan></text>
-          <rect class="lane" x="242" y="4" width="232" height="506" rx="10"/>
-          <text class="lbl" x="358" y="28" text-anchor="middle"><tspan class="pt">Agentes de IA</tspan><tspan class="en" lang="en">AI agents</tspan></text>
-          <rect class="lane" x="478" y="4" width="232" height="506" rx="10"/>
-          <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Código, sem IA</tspan><tspan class="en" lang="en">Plain code, no AI</tspan></text>
-          <rect class="box box--human" x="12" y="46" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="122" y="65" text-anchor="middle"><tspan class="pt">✋ Valida o briefing</tspan><tspan class="en" lang="en">✋ Validates the brief</tspan></text>
-          <text class="sub sub--s" x="122" y="81" text-anchor="middle"><tspan class="pt">sem briefing, nada é produzido</tspan><tspan class="en" lang="en">no brief, nothing is produced</tspan></text>
-          <circle class="num" cx="15" cy="49" r="9"/><text class="numt" x="15" y="52.5" text-anchor="middle">1</text>
-          <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Pesquisador</tspan><tspan class="en" lang="en">Researcher</tspan></text>
-          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">ideias e fontes com data e status</tspan><tspan class="en" lang="en">ideas and sources, dated and graded</tspan></text>
-          <circle class="num" cx="251" cy="107" r="9"/><text class="numt" x="251" y="110.5" text-anchor="middle">2</text>
-          <rect class="box" x="248" y="162" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="181" text-anchor="middle"><tspan class="pt">Redator</tspan><tspan class="en" lang="en">Writer</tspan></text>
-          <text class="sub sub--s" x="358" y="197" text-anchor="middle"><tspan class="pt">post na fila, com as referências</tspan><tspan class="en" lang="en">post in the queue, with references</tspan></text>
-          <circle class="num" cx="251" cy="165" r="9"/><text class="numt" x="251" y="168.5" text-anchor="middle">3</text>
-          <rect class="box" x="248" y="220" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="239" text-anchor="middle"><tspan class="pt">Questionador</tspan><tspan class="en" lang="en">Challenger</tspan></text>
-          <text class="sub sub--s" x="358" y="255" text-anchor="middle"><tspan class="pt">contesta as decisões do redator</tspan><tspan class="en" lang="en">challenges the writer’s choices</tspan></text>
-          <circle class="num" cx="251" cy="223" r="9"/><text class="numt" x="251" y="226.5" text-anchor="middle">4</text>
-          <rect class="box" x="248" y="278" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="297" text-anchor="middle"><tspan class="pt">Revisor</tspan><tspan class="en" lang="en">Reviewer</tspan></text>
-          <text class="sub sub--s" x="358" y="313" text-anchor="middle"><tspan class="pt">confere fatos, tom e repetição</tspan><tspan class="en" lang="en">checks facts, tone and repetition</tspan></text>
-          <circle class="num" cx="251" cy="281" r="9"/><text class="numt" x="251" y="284.5" text-anchor="middle">5</text>
-          <rect class="box box--human" x="12" y="336" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="122" y="355" text-anchor="middle"><tspan class="pt">✋ Aprova o post</tspan><tspan class="en" lang="en">✋ Approves the post</tspan></text>
-          <text class="sub sub--s" x="122" y="371" text-anchor="middle"><tspan class="pt">confere fontes; move com nome/hora</tspan><tspan class="en" lang="en">checks sources; moves with who/when</tspan></text>
-          <circle class="num" cx="15" cy="339" r="9"/><text class="numt" x="15" y="342.5" text-anchor="middle">6</text>
-          <rect class="box box--auto" x="484" y="394" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="594" y="413" text-anchor="middle"><tspan class="pt">Publicador</tspan><tspan class="en" lang="en">Publisher</tspan></text>
-          <text class="sub sub--s" x="594" y="429" text-anchor="middle"><tspan class="pt">só lê aprovados; PAUSAR para tudo</tspan><tspan class="en" lang="en">reads approved only; PAUSE halts all</tspan></text>
-          <circle class="num" cx="487" cy="397" r="9"/><text class="numt" x="487" y="400.5" text-anchor="middle">7</text>
-          <rect class="box" x="248" y="452" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="471" text-anchor="middle"><tspan class="pt">Aprendizado</tspan><tspan class="en" lang="en">Learning</tspan></text>
-          <text class="sub sub--s" x="358" y="487" text-anchor="middle"><tspan class="pt">o resultado volta para a memória</tspan><tspan class="en" lang="en">the result goes back to memory</tspan></text>
-          <circle class="num" cx="251" cy="455" r="9"/><text class="numt" x="251" y="458.5" text-anchor="middle">8</text>
-          <path class="line" d="M122 90V97H358V104" marker-end="url(#ds-seta)"/>
-          <path class="line" d="M358 148V162" marker-end="url(#ds-seta)"/>
-          <path class="line" d="M358 206V220" marker-end="url(#ds-seta)"/>
-          <path class="line" d="M358 264V278" marker-end="url(#ds-seta)"/>
-          <path class="line" d="M358 322V329H122V336" marker-end="url(#ds-seta)"/>
-          <path class="line" d="M122 380V387H594V394" marker-end="url(#ds-seta)"/>
-          <path class="line" d="M594 438V445H358V452" marker-end="url(#ds-seta)"/>
-          <rect class="box box--human" x="12" y="521" width="18" height="11" rx="3"/>
-          <text class="sub" x="38" y="530"><tspan class="pt">Pessoa decide</tspan><tspan class="en" lang="en">Person decides</tspan></text>
-          <rect class="box" x="236" y="521" width="18" height="11" rx="3"/>
-          <text class="sub" x="262" y="530"><tspan class="pt">Agente de IA</tspan><tspan class="en" lang="en">AI agent</tspan></text>
-          <rect class="box box--auto" x="470" y="521" width="18" height="11" rx="3"/>
-          <text class="sub" x="496" y="530"><tspan class="pt">Código, sem IA</tspan><tspan class="en" lang="en">Plain code, no AI</tspan></text>
-          </svg>
+        <div class="feature__diagram feature__diagram--xl scroll-x" aria-label="Diagrama do fluxo do social-ops">
+          <svg class="arch arch--xl" viewBox="0 0 1080 1060" role="img" aria-labelledby="dx-t">
+<title id="dx-t">Estrutura do social-ops: briefing validado, quatro agentes de IA produzem o post, prévia em HTML, aprovo com um comando, confirmo a publicação digitando o nome, e o publicador em código publica no LinkedIn; arquivos, pastas e travas à direita</title>
+<defs><marker id="dx-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
+<rect class="lane" x="6" y="4" width="246" height="1014" rx="10"/>
+<text class="lbl" x="129.0" y="28" text-anchor="middle"><tspan class="pt">Pessoas</tspan><tspan class="en" lang="en">People</tspan></text>
+<rect class="lane" x="252" y="4" width="246" height="1014" rx="10"/>
+<text class="lbl" x="375.0" y="28" text-anchor="middle"><tspan class="pt">Agentes de IA</tspan><tspan class="en" lang="en">AI agents</tspan></text>
+<rect class="lane" x="498" y="4" width="246" height="1014" rx="10"/>
+<text class="lbl" x="621.0" y="28" text-anchor="middle"><tspan class="pt">Código, sem IA</tspan><tspan class="en" lang="en">Plain code, no AI</tspan></text>
+<rect class="lane" x="742" y="4" width="340" height="1014" rx="10"/>
+<text class="lbl lbl--bus" x="912.0" y="28" text-anchor="middle"><tspan class="pt">Arquivos, pastas e travas</tspan><tspan class="en" lang="en">Files, folders and locks</tspan></text>
+<path class="line" d="M129.0 110V119.0H375.0V127" marker-end="url(#dx-seta)"/>
+<path class="line" d="M375.0 192V209" marker-end="url(#dx-seta)"/>
+<path class="line" d="M375.0 274V291" marker-end="url(#dx-seta)"/>
+<path class="line" d="M375.0 356V373" marker-end="url(#dx-seta)"/>
+<path class="line" d="M375.0 438V447.0H621.0V455" marker-end="url(#dx-seta)"/>
+<path class="line" d="M621.0 520V529.0H129.0V537" marker-end="url(#dx-seta)"/>
+<path class="line" d="M129.0 602V611.0H621.0V619" marker-end="url(#dx-seta)"/>
+<path class="line" d="M621.0 684V693.0H129.0V701" marker-end="url(#dx-seta)"/>
+<path class="line" d="M129.0 766V775.0H621.0V783" marker-end="url(#dx-seta)"/>
+<path class="line" d="M621.0 848V865" marker-end="url(#dx-seta)"/>
+<path class="line" d="M621.0 930V939.0H375.0V947" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M246 78.0H749" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M492 160.0H749" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M492 242.0H749" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M246 570.0H749" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M738 652.0H749" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M750 816.0H739" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M738 898.0H749" marker-end="url(#dx-seta)"/>
+<path class="line line--dash" d="M492 980.0H749" marker-end="url(#dx-seta)"/>
+<rect class="box box--human" x="12" y="46" width="234" height="64" rx="9"/>
+<text class="name name--s" x="129.0" y="68" text-anchor="middle"><tspan class="pt">✋ Valida o briefing</tspan><tspan class="en" lang="en">✋ Validates the brief</tspan></text>
+<text class="sub" style="font-size:10px" x="129.0" y="86" text-anchor="middle"><tspan class="pt">sem briefing validado,</tspan><tspan class="en" lang="en">no validated brief,</tspan></text>
+<text class="sub" style="font-size:10px" x="129.0" y="100" text-anchor="middle"><tspan class="pt">nada é produzido</tspan><tspan class="en" lang="en">nothing is produced</tspan></text>
+<circle class="num" cx="15" cy="49" r="9"/><text class="numt" x="15" y="52.5" text-anchor="middle">1</text>
+<rect class="box " x="258" y="128" width="234" height="64" rx="9"/>
+<text class="name name--s" x="375.0" y="150" text-anchor="middle"><tspan class="pt">Pesquisador</tspan><tspan class="en" lang="en">Researcher</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="168" text-anchor="middle"><tspan class="pt">só ideia com prova e fonte aberta</tspan><tspan class="en" lang="en">only ideas with proof, open source</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="182" text-anchor="middle"><tspan class="pt">fonte com data e status</tspan><tspan class="en" lang="en">every source dated and graded</tspan></text>
+<circle class="num" cx="261" cy="131" r="9"/><text class="numt" x="261" y="134.5" text-anchor="middle">2</text>
+<rect class="box " x="258" y="210" width="234" height="64" rx="9"/>
+<text class="name name--s" x="375.0" y="232" text-anchor="middle"><tspan class="pt">Redator</tspan><tspan class="en" lang="en">Writer</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="250" text-anchor="middle"><tspan class="pt">post + imagem + referências</tspan><tspan class="en" lang="en">post + image + references</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="264" text-anchor="middle"><tspan class="pt">para eu conferir cada afirmação</tspan><tspan class="en" lang="en">so I can check every claim</tspan></text>
+<circle class="num" cx="261" cy="213" r="9"/><text class="numt" x="261" y="216.5" text-anchor="middle">3</text>
+<rect class="box " x="258" y="292" width="234" height="64" rx="9"/>
+<text class="name name--s" x="375.0" y="314" text-anchor="middle"><tspan class="pt">Questionador</tspan><tspan class="en" lang="en">Challenger</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="332" text-anchor="middle"><tspan class="pt">contesta ângulo, gancho e prova</tspan><tspan class="en" lang="en">challenges angle, hook and proof</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="346" text-anchor="middle"><tspan class="pt">o redator corrige</tspan><tspan class="en" lang="en">the writer fixes it</tspan></text>
+<circle class="num" cx="261" cy="295" r="9"/><text class="numt" x="261" y="298.5" text-anchor="middle">4</text>
+<rect class="box " x="258" y="374" width="234" height="64" rx="9"/>
+<text class="name name--s" x="375.0" y="396" text-anchor="middle"><tspan class="pt">Revisor</tspan><tspan class="en" lang="en">Reviewer</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="414" text-anchor="middle"><tspan class="pt">fatos, tom, repetição e regras</tspan><tspan class="en" lang="en">facts, tone, repetition and the</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="428" text-anchor="middle"><tspan class="pt">do que nunca postar</tspan><tspan class="en" lang="en">never-post rules</tspan></text>
+<circle class="num" cx="261" cy="377" r="9"/><text class="numt" x="261" y="380.5" text-anchor="middle">5</text>
+<rect class="box box--auto" x="504" y="456" width="234" height="64" rx="9"/>
+<text class="name name--s" x="621.0" y="478" text-anchor="middle"><tspan class="pt">Prévia em HTML</tspan><tspan class="en" lang="en">HTML preview</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="496" text-anchor="middle"><tspan class="pt">previa.py abre no Chrome:</tspan><tspan class="en" lang="en">previa.py opens in Chrome:</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="510" text-anchor="middle"><tspan class="pt">texto, imagem e 1º comentário</tspan><tspan class="en" lang="en">text, image and first comment</tspan></text>
+<circle class="num" cx="507" cy="459" r="9"/><text class="numt" x="507" y="462.5" text-anchor="middle">6</text>
+<rect class="box box--human" x="12" y="538" width="234" height="64" rx="9"/>
+<text class="name name--s" x="129.0" y="560" text-anchor="middle"><tspan class="pt">✋ Eu decido</tspan><tspan class="en" lang="en">✋ I decide</tspan></text>
+<text class="sub" style="font-size:10px" x="129.0" y="578" text-anchor="middle"><tspan class="pt">/aprovar ou /nao-aprovado</tspan><tspan class="en" lang="en">/aprovar or /nao-aprovado</tspan></text>
+<text class="sub" style="font-size:10px" x="129.0" y="592" text-anchor="middle"><tspan class="pt">com o motivo, se descartar</tspan><tspan class="en" lang="en">with a reason if I discard</tspan></text>
+<circle class="num" cx="15" cy="541" r="9"/><text class="numt" x="15" y="544.5" text-anchor="middle">7</text>
+<rect class="box box--auto" x="504" y="620" width="234" height="64" rx="9"/>
+<text class="name name--s" x="621.0" y="642" text-anchor="middle"><tspan class="pt">Aprovação registrada</tspan><tspan class="en" lang="en">Approval recorded</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="660" text-anchor="middle"><tspan class="pt">move para aprovados/ e grava</tspan><tspan class="en" lang="en">moves to approved/, records</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="674" text-anchor="middle"><tspan class="pt">quem, quando e o hash</tspan><tspan class="en" lang="en">who, when and the content hash</tspan></text>
+<circle class="num" cx="507" cy="623" r="9"/><text class="numt" x="507" y="626.5" text-anchor="middle">8</text>
+<rect class="box box--human" x="12" y="702" width="234" height="64" rx="9"/>
+<text class="name name--s" x="129.0" y="724" text-anchor="middle"><tspan class="pt">✋ Confirmo a publicação</tspan><tspan class="en" lang="en">✋ I confirm publishing</tspan></text>
+<text class="sub" style="font-size:10px" x="129.0" y="742" text-anchor="middle"><tspan class="pt">única digitação do fluxo:</tspan><tspan class="en" lang="en">the only typed step:</tspan></text>
+<text class="sub" style="font-size:10px" x="129.0" y="756" text-anchor="middle"><tspan class="pt">o nome do post no terminal</tspan><tspan class="en" lang="en">the post name in the terminal</tspan></text>
+<circle class="num" cx="15" cy="705" r="9"/><text class="numt" x="15" y="708.5" text-anchor="middle">9</text>
+<rect class="box box--auto" x="504" y="784" width="234" height="64" rx="9"/>
+<text class="name name--s" x="621.0" y="806" text-anchor="middle"><tspan class="pt">Publicador</tspan><tspan class="en" lang="en">Publisher</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="824" text-anchor="middle"><tspan class="pt">só lê aprovados com hash válido;</tspan><tspan class="en" lang="en">reads approved + valid hash only;</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="838" text-anchor="middle"><tspan class="pt">PAUSAR, 1 por dia, nunca repete</tspan><tspan class="en" lang="en">PAUSE, 1 a day, never repeats</tspan></text>
+<circle class="num" cx="507" cy="787" r="9"/><text class="numt" x="507" y="790.5" text-anchor="middle">10</text>
+<rect class="box box--auto" x="504" y="866" width="234" height="64" rx="9"/>
+<text class="name name--s" x="621.0" y="888" text-anchor="middle"><tspan class="pt">LinkedIn (API oficial)</tspan><tspan class="en" lang="en">LinkedIn (official API)</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="906" text-anchor="middle"><tspan class="pt">imagem → post → 1º comentário</tspan><tspan class="en" lang="en">image → post → first comment</tspan></text>
+<text class="sub" style="font-size:10px" x="621.0" y="920" text-anchor="middle"><tspan class="pt">aviso antes de o token expirar</tspan><tspan class="en" lang="en">warns before the token expires</tspan></text>
+<circle class="num" cx="507" cy="869" r="9"/><text class="numt" x="507" y="872.5" text-anchor="middle">11</text>
+<rect class="box " x="258" y="948" width="234" height="64" rx="9"/>
+<text class="name name--s" x="375.0" y="970" text-anchor="middle"><tspan class="pt">Aprendizado</tspan><tspan class="en" lang="en">Learning</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="988" text-anchor="middle"><tspan class="pt">a métrica volta para a memória</tspan><tspan class="en" lang="en">metrics go back to memory</tspan></text>
+<text class="sub" style="font-size:10px" x="375.0" y="1002" text-anchor="middle"><tspan class="pt">hipótese até 5 posts, depois regra</tspan><tspan class="en" lang="en">hypothesis until 5 posts, then rule</tspan></text>
+<circle class="num" cx="261" cy="951" r="9"/><text class="numt" x="261" y="954.5" text-anchor="middle">12</text>
+<rect class="db" x="750" y="53.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="74.0" text-anchor="middle">briefing.md · marca.md</text>
+<text class="sub" style="font-size:10px" x="912.0" y="90.0" text-anchor="middle"><tspan class="pt">validados por mim; todos os agentes leem</tspan><tspan class="en" lang="en">validated by me; every agent reads them</tspan></text>
+<rect class="db" x="750" y="135.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="156.0" text-anchor="middle">conhecimento.md · fontes.md</text>
+<text class="sub" style="font-size:10px" x="912.0" y="172.0" text-anchor="middle"><tspan class="pt">fato só com fonte, data e status</tspan><tspan class="en" lang="en">a fact needs a source, date and grade</tspan></text>
+<rect class="db" x="750" y="217.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="238.0" text-anchor="middle">posts/fila/</text>
+<text class="sub" style="font-size:10px" x="912.0" y="254.0" text-anchor="middle"><tspan class="pt">rascunho · imagem · referências</tspan><tspan class="en" lang="en">draft · image · references</tspan></text>
+<rect class="db" x="750" y="545.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="566.0" text-anchor="middle">posts/descartados/</text>
+<text class="sub" style="font-size:10px" x="912.0" y="582.0" text-anchor="middle"><tspan class="pt">motivo registrado, vira hipótese</tspan><tspan class="en" lang="en">reason recorded, becomes a hypothesis</tspan></text>
+<rect class="db" x="750" y="627.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="648.0" text-anchor="middle">posts/aprovados/</text>
+<text class="sub" style="font-size:10px" x="912.0" y="664.0" text-anchor="middle"><tspan class="pt">aprovado_por · aprovado_em · hash</tspan><tspan class="en" lang="en">approved_by · approved_at · hash</tspan></text>
+<rect class="box box--bad" x="750" y="791.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="812.0" text-anchor="middle">PAUSAR</text>
+<text class="sub" style="font-size:10px" x="912.0" y="828.0" text-anchor="middle"><tspan class="pt">se o arquivo existe, nada é publicado</tspan><tspan class="en" lang="en">if the file exists, nothing is published</tspan></text>
+<rect class="db" x="750" y="866.0" width="324" height="64" rx="9"/>
+<text class="name name--s" x="912.0" y="887.0" text-anchor="middle">posts/publicados/</text>
+<text class="sub" style="font-size:10px" x="912.0" y="903.0" text-anchor="middle"><tspan class="pt">id do post e data; .publicando</tspan><tspan class="en" lang="en">post id and date; .publicando</tspan></text>
+<text class="sub" style="font-size:10px" x="912.0" y="916.0" text-anchor="middle"><tspan class="pt">evita publicar duas vezes</tspan><tspan class="en" lang="en">prevents a double publish</tspan></text>
+<rect class="db" x="750" y="955.0" width="324" height="50" rx="9"/>
+<text class="name name--s" x="912.0" y="976.0" text-anchor="middle">aprendizados.md</text>
+<text class="sub" style="font-size:10px" x="912.0" y="992.0" text-anchor="middle"><tspan class="pt">lido antes de cada post</tspan><tspan class="en" lang="en">read before every post</tspan></text>
+<rect class="note" x="750" y="292" width="324" height="146" rx="9"/>
+<text class="lbl" x="764" y="314"><tspan class="pt">Travas de conteúdo</tspan><tspan class="en" lang="en">Content locks</tspan></text>
+<text class="sub" style="font-size:10.5px" x="764" y="338"><tspan class="pt">▹ sem briefing validado, nada é produzido</tspan><tspan class="en" lang="en">▹ no validated brief, nothing is produced</tspan></text>
+<text class="sub" style="font-size:10.5px" x="764" y="358"><tspan class="pt">▹ sem resultado comprovado, o post não sai</tspan><tspan class="en" lang="en">▹ no proven result, the post does not ship</tspan></text>
+<text class="sub" style="font-size:10.5px" x="764" y="378"><tspan class="pt">▹ nada de política, economia ou vaga</tspan><tspan class="en" lang="en">▹ no politics, economy or job-hunting tone</tspan></text>
+<text class="sub" style="font-size:10.5px" x="764" y="398"><tspan class="pt">▹ fato sensível só se confirmado por mim</tspan><tspan class="en" lang="en">▹ sensitive claims only if I confirmed them</tspan></text>
+<rect class="note" x="750" y="702" width="324" height="64" rx="9"/>
+<text class="lbl" x="764" y="724"><tspan class="pt">Token do LinkedIn</tspan><tspan class="en" lang="en">LinkedIn token</tspan></text>
+<text class="sub" style="font-size:10.5px" x="764" y="748"><tspan class="pt">▹ fora do repositório, acesso restrito</tspan><tspan class="en" lang="en">▹ outside the repo, restricted access</tspan></text>
+<rect class="box box--human" x="12" y="1026" width="18" height="11" rx="3"/><text class="sub" x="38" y="1035"><tspan class="pt">Pessoa decide</tspan><tspan class="en" lang="en">Person decides</tspan></text>
+<rect class="box " x="236" y="1026" width="18" height="11" rx="3"/><text class="sub" x="262" y="1035"><tspan class="pt">Agente de IA</tspan><tspan class="en" lang="en">AI agent</tspan></text>
+<rect class="box box--auto" x="470" y="1026" width="18" height="11" rx="3"/><text class="sub" x="496" y="1035"><tspan class="pt">Código, sem IA</tspan><tspan class="en" lang="en">Plain code, no AI</tspan></text>
+<rect class="db" x="700" y="1026" width="18" height="11" rx="3"/><text class="sub" x="726" y="1035"><tspan class="pt">Arquivo ou pasta</tspan><tspan class="en" lang="en">File or folder</tspan></text>
+<rect class="box box--bad" x="900" y="1026" width="18" height="11" rx="3"/><text class="sub" x="926" y="1035"><tspan class="pt">Trava</tspan><tspan class="en" lang="en">Lock</tspan></text>
+</svg>
         </div>
       </div>
     </article>
