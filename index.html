@@ -714,7 +714,7 @@
       <div class="how">
         <div>
           <p class="how__kind"><span class="pt">método de desenvolvimento</span><span class="en" lang="en">development method</span></p>
-          <h3>metodo-dev</h3>
+          <h3>piloto-ia</h3>
           <p><span class="pt">Estrutura em que o Claude Code trabalha como par que pilota, enquanto eu decido o quê e o porquê. Nada do método entra nos repositórios dos projetos: regras e contexto ficam à parte e são injetados em cada sessão.</span><span class="en" lang="en">A setup where Claude Code works as the pair that drives, while I decide what and why. Nothing of the method enters the project repositories: rules and context live apart and are injected into every session.</span></p>
           <ul>
           <li><span class="pt">Tarefa com regra de negócio: explorar, planejar, escrever o teste que falha e implementar com código simples e fácil de ler.</span><span class="en" lang="en">Business-rule tasks: explore, plan, write the failing test and implement with simple, easy-to-read code.</span></li>
@@ -723,66 +723,105 @@
           <li><span class="pt">O que não precisa de decisão vira script, sem gastar token (limpar branches, retomar a sessão, medir o custo do contexto).</span><span class="en" lang="en">Whatever needs no decision becomes a script that spends no tokens (cleaning branches, resuming a session, measuring context cost).</span></li>
           </ul>
         </div>
-        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do metodo-dev">
-          <svg class="arch arch--wide" viewBox="0 0 720 606" role="img" aria-labelledby="dm-t">
-          <title id="dm-t">Fluxo do metodo-dev: Claude explora e planeja, Jean aprova, o hook roda a verificação, um revisor de contexto limpo confere, a diff é lida atrás de segredo e Jean faz o merge</title>
+        <div class="feature__diagram scroll-x" aria-label="Diagrama do fluxo do piloto-ia">
+          <svg class="arch arch--wide" viewBox="0 0 720 1010" role="img" aria-labelledby="dm-t">
+          <title id="dm-t">Fluxo do piloto-ia em 12 passos: Jean abre a sessão e o hook injeta o contexto; Claude explora, planeja e implementa com teste; Jean aprova o plano; hooks rodam a verificação e a varredura de segredos; um revisor de contexto limpo confere; Jean mescla o PR e a sessão é fechada com o registro do que aprendemos</title>
           <defs><marker id="dm-seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0 0 10 5 0 10z"/></marker></defs>
-          <rect class="lane" x="6" y="4" width="232" height="564" rx="10"/>
+          <rect class="lane" x="6" y="4" width="232" height="972" rx="10"/>
           <text class="lbl" x="122" y="28" text-anchor="middle"><tspan class="pt">Eu · decido</tspan><tspan class="en" lang="en">Me · I decide</tspan></text>
-          <rect class="lane" x="242" y="4" width="232" height="564" rx="10"/>
+          <rect class="lane" x="242" y="4" width="232" height="972" rx="10"/>
           <text class="lbl" x="358" y="28" text-anchor="middle"><tspan class="pt">Claude · par que pilota</tspan><tspan class="en" lang="en">Claude · pilots as pair</tspan></text>
-          <rect class="lane" x="478" y="4" width="232" height="564" rx="10"/>
-          <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Automático</tspan><tspan class="en" lang="en">Automatic</tspan></text>
-          <rect class="box" x="248" y="46" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="65" text-anchor="middle"><tspan class="pt">Explorar o código</tspan><tspan class="en" lang="en">Explore the code</tspan></text>
-          <text class="sub sub--s" x="358" y="81" text-anchor="middle"><tspan class="pt">explica como funciona, sem alterar</tspan><tspan class="en" lang="en">explains how it works, no edits</tspan></text>
-          <circle class="num" cx="251" cy="49" r="9"/><text class="numt" x="251" y="52.5" text-anchor="middle">1</text>
-          <rect class="box" x="248" y="104" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="123" text-anchor="middle"><tspan class="pt">Planejar o simples</tspan><tspan class="en" lang="en">Plan it simple</tspan></text>
-          <text class="sub sub--s" x="358" y="139" text-anchor="middle"><tspan class="pt">simples, fácil de ler e entender</tspan><tspan class="en" lang="en">simple, easy-to-read code</tspan></text>
-          <circle class="num" cx="251" cy="107" r="9"/><text class="numt" x="251" y="110.5" text-anchor="middle">2</text>
-          <rect class="box box--human" x="12" y="162" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="122" y="181" text-anchor="middle"><tspan class="pt">✋ Aprova o plano</tspan><tspan class="en" lang="en">✋ Approves the plan</tspan></text>
-          <text class="sub sub--s" x="122" y="197" text-anchor="middle"><tspan class="pt">decide o quê e o porquê</tspan><tspan class="en" lang="en">decides what and why</tspan></text>
-          <circle class="num" cx="15" cy="165" r="9"/><text class="numt" x="15" y="168.5" text-anchor="middle">3</text>
-          <rect class="box" x="248" y="220" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="239" text-anchor="middle"><tspan class="pt">Teste falha, implementa</tspan><tspan class="en" lang="en">Failing test, then code</tspan></text>
-          <text class="sub sub--s" x="358" y="255" text-anchor="middle"><tspan class="pt">o teste prova o critério de aceite</tspan><tspan class="en" lang="en">the test proves the criterion</tspan></text>
-          <circle class="num" cx="251" cy="223" r="9"/><text class="numt" x="251" y="226.5" text-anchor="middle">4</text>
-          <rect class="box box--auto" x="484" y="278" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="594" y="297" text-anchor="middle"><tspan class="pt">Verificação do projeto</tspan><tspan class="en" lang="en">Project verification</tspan></text>
-          <text class="sub sub--s" x="594" y="313" text-anchor="middle"><tspan class="pt">o hook barra o commit se falhar</tspan><tspan class="en" lang="en">the hook blocks a failing commit</tspan></text>
-          <circle class="num" cx="487" cy="281" r="9"/><text class="numt" x="487" y="284.5" text-anchor="middle">5</text>
-          <rect class="box box--auto" x="484" y="336" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="594" y="355" text-anchor="middle"><tspan class="pt">Revisor, contexto limpo</tspan><tspan class="en" lang="en">Reviewer, clean context</tspan></text>
-          <text class="sub sub--s" x="594" y="371" text-anchor="middle"><tspan class="pt">confere a diff sem o viés do autor</tspan><tspan class="en" lang="en">reads the diff without author bias</tspan></text>
-          <circle class="num" cx="487" cy="339" r="9"/><text class="numt" x="487" y="342.5" text-anchor="middle">6</text>
-          <rect class="box" x="248" y="394" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="413" text-anchor="middle"><tspan class="pt">Commit, push e PR</tspan><tspan class="en" lang="en">Commit, push and PR</tspan></text>
-          <text class="sub sub--s" x="358" y="429" text-anchor="middle"><tspan class="pt">branch nova e diff sem segredos</tspan><tspan class="en" lang="en">new branch, diff checked for secrets</tspan></text>
-          <circle class="num" cx="251" cy="397" r="9"/><text class="numt" x="251" y="400.5" text-anchor="middle">7</text>
-          <rect class="box box--human" x="12" y="452" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="122" y="471" text-anchor="middle"><tspan class="pt">✋ Confere a diff e mescla</tspan><tspan class="en" lang="en">✋ Reviews the diff, merges</tspan></text>
-          <text class="sub sub--s" x="122" y="487" text-anchor="middle"><tspan class="pt">só entra na principal com meu merge</tspan><tspan class="en" lang="en">reaches main only with my merge</tspan></text>
-          <circle class="num" cx="15" cy="455" r="9"/><text class="numt" x="15" y="458.5" text-anchor="middle">8</text>
-          <rect class="box" x="248" y="510" width="220" height="44" rx="9"/>
-          <text class="name name--s" x="358" y="529" text-anchor="middle"><tspan class="pt">Registra o aprendizado</tspan><tspan class="en" lang="en">Records the lesson</tspan></text>
-          <text class="sub sub--s" x="358" y="545" text-anchor="middle"><tspan class="pt">aprendizados e próximo passo</tspan><tspan class="en" lang="en">lessons and next step</tspan></text>
-          <circle class="num" cx="251" cy="513" r="9"/><text class="numt" x="251" y="516.5" text-anchor="middle">9</text>
-          <path class="line" d="M358 90V104" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M358 148V155H122V162" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M122 206V213H358V220" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M358 264V271H594V278" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M594 322V336" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M594 380V387H358V394" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M358 438V445H122V452" marker-end="url(#dm-seta)"/>
-          <path class="line" d="M122 496V503H358V510" marker-end="url(#dm-seta)"/>
-          <rect class="box box--human" x="12" y="579" width="18" height="11" rx="3"/>
-          <text class="sub" x="38" y="588"><tspan class="pt">Eu decido</tspan><tspan class="en" lang="en">I decide</tspan></text>
-          <rect class="box" x="236" y="579" width="18" height="11" rx="3"/>
-          <text class="sub" x="262" y="588"><tspan class="pt">Claude executa</tspan><tspan class="en" lang="en">Claude executes</tspan></text>
-          <rect class="box box--auto" x="470" y="579" width="18" height="11" rx="3"/>
-          <text class="sub" x="496" y="588"><tspan class="pt">Roda sozinho</tspan><tspan class="en" lang="en">Runs on its own</tspan></text>
+          <rect class="lane" x="478" y="4" width="232" height="972" rx="10"/>
+          <text class="lbl" x="594" y="28" text-anchor="middle"><tspan class="pt">Automático · hooks e scripts</tspan><tspan class="en" lang="en">Automatic · hooks and scripts</tspan></text>
+          <rect class="note" x="12" y="186" width="220" height="46" rx="8"/>
+          <text class="sub sub--s" x="122" y="201" text-anchor="middle"><tspan class="pt">Tarefa pequena (texto, ajuste,</tspan><tspan class="en" lang="en">Small task (text, tweak,</tspan></text>
+          <text class="sub sub--s" x="122" y="214" text-anchor="middle"><tspan class="pt">config) pula os passos 3 a 6</tspan><tspan class="en" lang="en">config) skips steps 3 to 6</tspan></text>
+          <text class="sub sub--s" x="122" y="227" text-anchor="middle"><tspan class="pt">e vai direto ao 7</tspan><tspan class="en" lang="en">and goes straight to 7</tspan></text>
+          <rect class="box box--human" x="12" y="46" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="122" y="66" text-anchor="middle"><tspan class="pt">✋ Pede a tarefa no dev</tspan><tspan class="en" lang="en">✋ Asks the task in dev</tspan></text>
+          <text class="sub sub--s" x="122" y="81" text-anchor="middle"><tspan class="pt">o contexto fica fora do repo,</tspan><tspan class="en" lang="en">context lives outside the repo,</tspan></text>
+          <text class="sub sub--s" x="122" y="94" text-anchor="middle"><tspan class="pt">nenhum arquivo do método nele</tspan><tspan class="en" lang="en">no method file inside it</tspan></text>
+          <circle class="num" cx="15" cy="49" r="9"/><text class="numt" x="15" y="52.5" text-anchor="middle">1</text>
+          <rect class="box box--auto" x="484" y="120" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="594" y="140" text-anchor="middle"><tspan class="pt">Injeta o contexto</tspan><tspan class="en" lang="en">Injects the context</tspan></text>
+          <text class="sub sub--s" x="594" y="155" text-anchor="middle"><tspan class="pt">método, contexto do projeto,</tspan><tspan class="en" lang="en">method, project context,</tspan></text>
+          <text class="sub sub--s" x="594" y="168" text-anchor="middle"><tspan class="pt">onde paramos e pendências</tspan><tspan class="en" lang="en">where we stopped, open items</tspan></text>
+          <circle class="num" cx="487" cy="123" r="9"/><text class="numt" x="487" y="126.5" text-anchor="middle">2</text>
+          <rect class="box" x="248" y="240" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="358" y="260" text-anchor="middle"><tspan class="pt">Explorar o código</tspan><tspan class="en" lang="en">Explore the code</tspan></text>
+          <text class="sub sub--s" x="358" y="275" text-anchor="middle"><tspan class="pt">explica como funciona</tspan><tspan class="en" lang="en">explains how it works</tspan></text>
+          <text class="sub sub--s" x="358" y="288" text-anchor="middle"><tspan class="pt">sem teste: /caracterizar-testes</tspan><tspan class="en" lang="en">no tests: /caracterizar-testes</tspan></text>
+          <circle class="num" cx="251" cy="243" r="9"/><text class="numt" x="251" y="246.5" text-anchor="middle">3</text>
+          <rect class="box" x="248" y="314" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="358" y="334" text-anchor="middle"><tspan class="pt">Planejar o simples</tspan><tspan class="en" lang="en">Plan it simple</tspan></text>
+          <text class="sub sub--s" x="358" y="349" text-anchor="middle"><tspan class="pt">/planejar: plano mínimo e</tspan><tspan class="en" lang="en">/planejar: minimal plan and</tspan></text>
+          <text class="sub sub--s" x="358" y="362" text-anchor="middle"><tspan class="pt">critério Dado/Quando/Então</tspan><tspan class="en" lang="en">Given/When/Then criterion</tspan></text>
+          <circle class="num" cx="251" cy="317" r="9"/><text class="numt" x="251" y="320.5" text-anchor="middle">4</text>
+          <rect class="box box--human" x="12" y="388" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="122" y="408" text-anchor="middle"><tspan class="pt">✋ Aprova o plano</tspan><tspan class="en" lang="en">✋ Approves the plan</tspan></text>
+          <text class="sub sub--s" x="122" y="423" text-anchor="middle"><tspan class="pt">nada é alterado sem meu ok</tspan><tspan class="en" lang="en">nothing changes without my ok</tspan></text>
+          <text class="sub sub--s" x="122" y="436" text-anchor="middle"><tspan class="pt">decido o quê e o porquê</tspan><tspan class="en" lang="en">I decide what and why</tspan></text>
+          <circle class="num" cx="15" cy="391" r="9"/><text class="numt" x="15" y="394.5" text-anchor="middle">5</text>
+          <rect class="box" x="248" y="462" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="358" y="482" text-anchor="middle"><tspan class="pt">Teste falha, implementa</tspan><tspan class="en" lang="en">Failing test, then code</tspan></text>
+          <text class="sub sub--s" x="358" y="497" text-anchor="middle"><tspan class="pt">o teste prova o critério;</tspan><tspan class="en" lang="en">the test proves the criterion;</tspan></text>
+          <text class="sub sub--s" x="358" y="510" text-anchor="middle"><tspan class="pt">saiu do plano, para e avisa</tspan><tspan class="en" lang="en">off plan, it stops and tells me</tspan></text>
+          <circle class="num" cx="251" cy="465" r="9"/><text class="numt" x="251" y="468.5" text-anchor="middle">6</text>
+          <rect class="box box--auto" x="484" y="536" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="594" y="556" text-anchor="middle"><tspan class="pt">Verificação do projeto</tspan><tspan class="en" lang="en">Project verification</tspan></text>
+          <text class="sub sub--s" x="594" y="571" text-anchor="middle"><tspan class="pt">verificar.sh: o hook barra o</tspan><tspan class="en" lang="en">verificar.sh: the hook blocks</tspan></text>
+          <text class="sub sub--s" x="594" y="584" text-anchor="middle"><tspan class="pt">commit se falhar; sem --no-verify</tspan><tspan class="en" lang="en">a failing commit; no --no-verify</tspan></text>
+          <circle class="num" cx="487" cy="539" r="9"/><text class="numt" x="487" y="542.5" text-anchor="middle">7</text>
+          <rect class="box box--auto" x="484" y="610" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="594" y="630" text-anchor="middle"><tspan class="pt">Varredura de segredos</tspan><tspan class="en" lang="en">Secret scan</tspan></text>
+          <text class="sub sub--s" x="594" y="645" text-anchor="middle"><tspan class="pt">o hook lê o diff atrás de chave,</tspan><tspan class="en" lang="en">the hook reads the diff for keys,</tspan></text>
+          <text class="sub sub--s" x="594" y="658" text-anchor="middle"><tspan class="pt">token e dado pessoal; barra</tspan><tspan class="en" lang="en">tokens, personal data; blocks</tspan></text>
+          <circle class="num" cx="487" cy="613" r="9"/><text class="numt" x="487" y="616.5" text-anchor="middle">8</text>
+          <rect class="box box--auto" x="484" y="684" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="594" y="704" text-anchor="middle"><tspan class="pt">Revisor, contexto limpo</tspan><tspan class="en" lang="en">Reviewer, clean context</tspan></text>
+          <text class="sub sub--s" x="594" y="719" text-anchor="middle"><tspan class="pt">/revisar: agente só leitura, sem</tspan><tspan class="en" lang="en">/revisar: read-only agent with</tspan></text>
+          <text class="sub sub--s" x="594" y="732" text-anchor="middle"><tspan class="pt">o viés de quem escreveu</tspan><tspan class="en" lang="en">no bias from the author</tspan></text>
+          <circle class="num" cx="487" cy="687" r="9"/><text class="numt" x="487" y="690.5" text-anchor="middle">9</text>
+          <rect class="box" x="248" y="758" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="358" y="778" text-anchor="middle"><tspan class="pt">Commit, push e PR</tspan><tspan class="en" lang="en">Commit, push and PR</tspan></text>
+          <text class="sub sub--s" x="358" y="793" text-anchor="middle"><tspan class="pt">uma branch nova por tarefa; diff</tspan><tspan class="en" lang="en">one new branch per task; diff</tspan></text>
+          <text class="sub sub--s" x="358" y="806" text-anchor="middle"><tspan class="pt">lida atrás de segredo no push</tspan><tspan class="en" lang="en">read for secrets before push</tspan></text>
+          <circle class="num" cx="251" cy="761" r="9"/><text class="numt" x="251" y="764.5" text-anchor="middle">10</text>
+          <rect class="box box--human" x="12" y="832" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="122" y="852" text-anchor="middle"><tspan class="pt">✋ Confere a diff, mescla</tspan><tspan class="en" lang="en">✋ Reviews diff, merges</tspan></text>
+          <text class="sub sub--s" x="122" y="867" text-anchor="middle"><tspan class="pt">só entra na principal com</tspan><tspan class="en" lang="en">reaches main only with</tspan></text>
+          <text class="sub sub--s" x="122" y="880" text-anchor="middle"><tspan class="pt">o meu merge</tspan><tspan class="en" lang="en">my merge</tspan></text>
+          <circle class="num" cx="15" cy="835" r="9"/><text class="numt" x="15" y="838.5" text-anchor="middle">11</text>
+          <rect class="box" x="248" y="906" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="358" y="926" text-anchor="middle"><tspan class="pt">Fecha a sessão</tspan><tspan class="en" lang="en">Closes the session</tspan></text>
+          <text class="sub sub--s" x="358" y="941" text-anchor="middle"><tspan class="pt">/fechar-sessao: aprendizados,</tspan><tspan class="en" lang="en">/fechar-sessao: lessons,</tspan></text>
+          <text class="sub sub--s" x="358" y="954" text-anchor="middle"><tspan class="pt">próximo passo e histórico</tspan><tspan class="en" lang="en">next step and history</tspan></text>
+          <circle class="num" cx="251" cy="909" r="9"/><text class="numt" x="251" y="912.5" text-anchor="middle">12</text>
+          <rect class="box box--auto line--dash" x="484" y="832" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="594" y="852" text-anchor="middle"><tspan class="pt">Scripts, sem gastar token</tspan><tspan class="en" lang="en">Scripts, no tokens spent</tspan></text>
+          <text class="sub sub--s" x="594" y="867" text-anchor="middle"><tspan class="pt">dev proximo · custo · limpar</tspan><tspan class="en" lang="en">dev proximo · custo · limpar</tspan></text>
+          <text class="sub sub--s" x="594" y="880" text-anchor="middle"><tspan class="pt">retomar sessão, medir contexto</tspan><tspan class="en" lang="en">resume session, measure context</tspan></text>
+          <rect class="box box--auto line--dash" x="484" y="906" width="220" height="56" rx="9"/>
+          <text class="name name--s" x="594" y="926" text-anchor="middle"><tspan class="pt">Trava de limite de uso</tspan><tspan class="en" lang="en">Usage-limit guard</tspan></text>
+          <text class="sub sub--s" x="594" y="941" text-anchor="middle"><tspan class="pt">avisa perto do limite e pede</tspan><tspan class="en" lang="en">warns near the limit and asks</tspan></text>
+          <text class="sub sub--s" x="594" y="954" text-anchor="middle"><tspan class="pt">para salvar o contexto</tspan><tspan class="en" lang="en">to save the context</tspan></text>
+          <path class="line" d="M122 102V111H594V120" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M594 176V185H358V240" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 296V314" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 370V379H122V388" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M122 444V453H358V462" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 518V527H594V536" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M594 592V610" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M594 666V684" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M594 740V749H358V758" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M358 814V823H122V832" marker-end="url(#dm-seta)"/>
+          <path class="line" d="M122 888V897H358V906" marker-end="url(#dm-seta)"/>
+          <rect class="box box--human" x="12" y="988" width="18" height="11" rx="3"/>
+          <text class="sub" x="38" y="997"><tspan class="pt">Eu decido</tspan><tspan class="en" lang="en">I decide</tspan></text>
+          <rect class="box" x="236" y="988" width="18" height="11" rx="3"/>
+          <text class="sub" x="262" y="997"><tspan class="pt">Claude executa</tspan><tspan class="en" lang="en">Claude executes</tspan></text>
+          <rect class="box box--auto" x="470" y="988" width="18" height="11" rx="3"/>
+          <text class="sub" x="496" y="997"><tspan class="pt">Roda sozinho</tspan><tspan class="en" lang="en">Runs on its own</tspan></text>
           </svg>
         </div>
       </div>
